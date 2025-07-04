@@ -1,0 +1,138 @@
+---
+title: "Faktur Pembelian"
+---
+
+## Apa itu Faktur Pembelian?
+
+Faktur pembelian pada Accounting+ digunakan mencatat tagihan atas pembelian barang atau jasa. Faktur ini berisi rincian barang/jasa yang dibeli, harga, jumlah, dan informasi penting lainnya.
+
+<Note>
+    Tagihan dari vendor/supplier atas pembelian barang/jasa.
+</Note>
+
+<Tip>
+    Istilah lain: Purchase Invoice/Tagihan Pembelian
+    Faktur dapat dibuat secara langsung atau berdasarkan Pembelian(Pesanan)
+    Faktur akan menjadi dasar pembayaran pembelian
+</Tip>
+
+<Tip>
+    Faktur akan menjadi hutang selama belum ada Pembayaran
+    Pembuatan Faktur akan membentuk jurnal secara otomatis
+</Tip>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat, melihat dan mengedit **Faktur Pembelian** (purchase invoice) pada aplikasi Accounting+.
+
+## Membuat Faktur Pembelian
+
+1. **Login** ke aplikasi Accounting+ menggunakan username dan password Anda.
+2. Klik menu **Pembelian** pada navigasi menu.
+3. Pilih **Faktur Pembelian.**
+4. Klik tombol **Tambah,** tombol ini berada di pojok kanan atas atau di bagian atas daftar faktur.
+5. Isikan informasi utama :
+    <Frame>
+        <img src="/images/purchase-invoice1.png" />
+    </Frame>
+    | Nama Field  | Keterangan |
+    |----|----|
+    | Dokumen# | Nomor dokumen yang akan otomatis terisi ketika transaksi pembelian di **Simpan**. |
+    | Tanggal | Merupakan tanggal pembuatan Purchase Invoice/faktur pembelian. |
+    | Vendor | Berisi pilihan vendor. |
+    | Faktur Vendor# | Merupakan field untu memasukkan nomor faktur/invoice vendor. |
+    | Termasuk Pajak | Pilihan untuk memilih apakah harga produk sudah termasuk pajak atau tidak termasuk pajak. |
+    | Dari Pembelian | Pilihan untuk menandai apakah faktur pembelian berdasarkan dokumen pembelian atau manual(tidak berdasarkan pembelian). |
+    | Jatuh Tempo | Batas pembayaran faktur pembelian. |
+    | Pembayaran | Anda dapat mencatatkan pembayaran/pelunasan faktur pembelian langsung ketika membuat faktur. Saat Anda menggeser sebuah tombol kecil (disebut toggle), akan memunculkan field akun bank untuk memilih rekening penerima uang pembayaran. Apabila faktur langsung dibayarkan, maka dokumen pembayaran lunas akan otomatis terbuat. |
+    <Warning>
+    * Field **Dari Pembelian**, perlu dipilih ketika bisnis/UMKM yang proses bisnisnya melalui Pembelian/Purchase Order terlebih dahulu sebelum Faktur Pembelian.
+    * Field **Dari Pembelian,** tidak dipilih ketika bisnis/UMKM yang proses bisnisnya tidak melalui Pembelian/Purchase Order. 
+    </Warning>
+6. Isikan informasi detail dengan klik Tambah Item : 
+    <Frame>
+        <img src="/images/purchase-invoice2.png" />
+    </Frame>
+7. Klik **Tambah Item**, untuk menambah item.
+    Setelah klik Tambah Item, akan muncul seperti pada gambar berikut:
+    <Frame>
+        <img src="/images/purchase-invoice3.png" />
+    </Frame>
+    Saat klik produk, Anda dapat langsung menambahkan produk dengan klik tambah produk:
+    <Frame>
+        <img src="/images/purchase-invoice4.png" />
+    </Frame>
+    Apabila Anda klik Tambah Produk, makan akan muncul pop up Tambah Produk, disini terdapat tiga pilihan jenis produk yaitu barang, jasa dan konsumsi.
+    <Frame>
+        <img src="/images/purchase-invoice5.png" />
+    </Frame>
+    | Nama Field | Keterangan |
+    |----|----|
+    | Produk\* | Menunjukkan nama atau jenis barang/jasa yang dibeli. Field ini berupa dropdown produk yang sudah terdaftar. Anda dapat langsung menambah produk, terdapat tiga jenis produk yaitu barang, jasa dan konsumsi. |
+    | Kuantitas Tagihan\* | Jumlah unit barang yang dibeli.  |
+    | Satuan\* | Field ini berupa dropdown satuan yang sudah terdaftar. Satuan pengukuran barang, misalnya pcs (pieces), kg (kilogram), liter, box, dll.  |
+    | Harga\* | Harga per satuan barang/jasa. Field ini digunakan untuk menghitung total harga sebelum diskon dan pajak yang dapat diisi dengan nilai numerik dalam mata uang yang berlaku. |
+    | Diskon | Potongan harga yang diberikan untuk barang tersebut. Diskon bisa diisikan berupa persentase (%) dan otomatis akan menghitung nominal rupiah. Field ini mengurangi nilai harga sebelum pajak dihitung. |
+    | Sub Total | Jumlah harga setelah dikurangi diskon, namun sebelum pajak. Ini adalah nilai dasar yang akan dikenakan pajak dan menjadi dasar perhitungan total harga item tersebut. |
+    | Pajak  | Jenis pajak yang dikenakan pada barang/jasa, misalnya PPN (Pajak Pertambahan Nilai), PPh, atau pajak lainnya. Field ini biasanya berupa pilihan jenis pajak yang berlaku sesuai regulasi. |
+    | Total Pajak | Jumlah nilai pajak yang dikenakan pada subtotal barang tersebut. Ini adalah hasil perhitungan dari persentase pajak dikalikan subtotal. |
+    | Total | Jumlah akhir yang harus dibayar untuk item tersebut, yaitu subtotal ditambah total pajak. Ini adalah nilai final yang akan masuk ke total keseluruhan faktur pembelian. |
+8. Bagian Total, di sini terdapat informasi total sebelum pajak, total pajak, dan total.
+    <Frame>
+        <img src="/images/purchase-invoice6.png" />
+    </Frame>
+9. Klik **Simpan** tuntuk menyimpan pembuatan faktur pembelian, Klik **Abaikan** untuk membatalkan pembuatan faktur pembelian.
+
+## Melihat Faktur Pembelian
+
+1. Setelah di **Simpan**, list faktur pembelian akan ditampilkan sesuai gambar dibawah ini: 
+    <Frame>
+        <img src="/images/purchase-invoice7.png" />
+    </Frame>
+    <Tip>
+    Anda dapat melakukan grup berdasarkan status pembayaran, dengan mengelompokkan status pembayaran anda dapat mengetahui faktur mana yang sudah di bayar, yang masih harus dibayar dan yang sudah melewati tanggal jatuh tempo.
+        <Frame>
+            <img src="/images/purchase-invoice8.png" />
+        </Frame>
+    </Tip>
+2. Klik titik tiga di bagian kanan informasi faktur pembelian. Titik tiga ini merupakan ***More Options*** yang terdiri dari pilihan Detail dan Edit. 
+3. Klik Detail, digunakan untuk melihat detail informasi dari list data.
+    <Frame>
+        <img src="/images/purchase-invoice9.png" />
+    </Frame>
+4. Pada tampilan detail akan terlihat informasi umum dan catatan.
+    <Frame>
+        <img src="/images/purchase-invoice10.png" />
+    </Frame>
+    Detail dan Total:
+    <Frame>
+        <img src="/images/purchase-invoice11.png" />
+    </Frame>
+
+## Mengedit Faktur Pembelian
+
+1. Klik menu **Pembelian** pada navigasi menu.
+2. Pilih **Transaksi → Faktur Pembelian**
+3. Klik titik tiga di bagian kanan informasi kategori vendor. Titik tiga ini merupakan ***More Options*** yang terdiri dari pilihan Detail dan Edit. 
+4. Klik **Edit**, pada faktur pembelian digunakan hanya untuk pembatalan transaksi beserta alasannya.
+    Informasi Utama:
+    <Frame>
+        <img src="/images/purchase-invoice12.png" />
+    </Frame>
+    <Note>
+    **INFO!**
+    Pembatasan opsi edit langsung pada faktur pembelian dan hanya menyediakan pilihan **"Batalkan Transaksi"** adalah langkah penting dalam menjaga:
+    * **Keakuratan dan konsistensi data keuangan**
+    * **Kepatuhan terhadap regulasi perpajakan dan audit**
+    * **Keamanan dan integritas proses bisnis**
+    * **Jejak audit yang jelas dan dapat dipertanggungjawabkan**
+    </Note>
+5. Pada bagian detail dan total Faktur Pembelian tidak ada yang dapat diubah. Klik **Simpan** tuntuk menyimpan perubahan Faktur Pembelian, Klik **Abaikan** untuk membatalkan perubahan Faktur Pembelian. 
+    <Tip>
+    **Fitur Search, Filter dan AI**
+        <Frame>
+            <img src="/images/purchase-invoice13.png" />
+        </Frame>
+    Anda dapat mempermudah transaksi menggunakan tiga fitur ini:
+    **Search**        : membantu menemukan data dengan cepat dengan cara mengetik kata kunci.
+    **Filter**           : memudahkan fokus pada data yang relevan dengan cara memilih filter.
+    **Bantuan AI :** membawa kecerdasan dan otomatisasi yang membuat sistem lebih pintar dan responsif terhadap kebutuhan pengguna, Anda langsung mengetik pertanyaan pada field AI.
+    </Tip>

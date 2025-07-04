@@ -33,6 +33,14 @@
               "documentation/master-data/unit",
               "documentation/master-data/bank-account"
             ]
+          },
+          {
+            "group": "Purchase",
+            "pages": [
+              "documentation/purchase/vendor-category",
+              "documentation/purchase/vendor",
+              "documentation/purchase/purchase-invoice"
+            ]
           }
         ]
       },
