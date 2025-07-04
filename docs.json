@@ -1,0 +1,105 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Accounting+",
+  "colors": {
+    "primary": "#03a9fc",
+    "light": "#0799c9",
+    "dark": "#1871a1"
+  },
+  "favicon": "/favicon.ico",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Pengenalan",
+            "pages": [
+              "documentation/introduction/what-is-accounting+",
+              "documentation/introduction/create-account",
+              "documentation/introduction/login",
+              "documentation/introduction/logout"
+            ]
+          },
+          {
+            "group": "Master Data",
+            "pages": [
+              "documentation/master-data/bagan-akun",
+              "documentation/master-data/bank"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/get-started",
+              "api-reference/quickstart"
+            ]
+          },
+          {
+            "group": "Arus Kas Bank",
+            "pages": [
+              "api-reference/endpoint/voucher-list",
+              "api-reference/endpoint/voucher-get",
+              "api-reference/endpoint/voucher-create",
+              "api-reference/endpoint/voucher-update",
+              "api-reference/endpoint/voucher-category-list"
+            ]
+          },
+          {
+            "group": "Jurnal",
+            "pages": [
+              "api-reference/endpoint/journal-list",
+              "api-reference/endpoint/journal-get",
+              "api-reference/endpoint/journal-create",
+              "api-reference/endpoint/journal-update"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Landing Page",
+          "href": "https://accountingplus.id",
+          "icon": "house"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://accountingplus.id",
+          "icon": "discord"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "RUN System",
+        "href": "https://runsystem.id"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "App",
+      "href": "https://app.accountingplus.id"
+    }
+  },
+  "footer": {
+    "socials": {
+      "instagram": "https://www.instagram.com/runsystemid",
+      "github": "https://github.com/runsystemid",
+      "linkedin": "https://linkedin.com/company/runsystemid"
+    }
+  }
+}
