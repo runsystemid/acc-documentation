@@ -73,8 +73,8 @@
               "documentation/accounting/opening-balance",
               "documentation/accounting/closing-journal-entries",
               "documentation/accounting/profit-loss",
-              "documentation/accounting/balance",
-              "documentation/accounting/trial-balance"
+              "documentation/accounting/balance-sheet",
+              "documentation/accounting/trial-balance-sheet"
             ]
           }
         ]
