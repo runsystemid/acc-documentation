@@ -39,7 +39,42 @@
             "pages": [
               "documentation/purchase/vendor-category",
               "documentation/purchase/vendor",
-              "documentation/purchase/purchase-invoice"
+              "documentation/purchase/purchase-invoice",
+              "documentation/purchase/purchase-payment",
+              "documentation/purchase/purchase",
+              "documentation/purchase/purchase-invoice-report"
+            ]
+          },
+          {
+            "group": "Sales",
+            "pages": [
+              "documentation/sales/sales-team",
+              "documentation/sales/customer-category",
+              "documentation/sales/customer",
+              "documentation/sales/sales-invoice",
+              "documentation/sales/sales-payment",
+              "documentation/sales/sales",
+              "documentation/sales/sales-team-performance",
+              "documentation/sales/sales-billing-report"
+            ]
+          },
+          {
+            "group": "Finance",
+            "pages": [
+              "documentation/finance/closing-cash-bank",
+              "documentation/finance/cash-flow-and-bank",
+              "documentation/finance/cash-book-report"
+            ]
+          },
+          {
+            "group": "Accounting",
+            "pages": [
+              "documentation/accounting/journal-transaction",
+              "documentation/accounting/opening-balance",
+              "documentation/accounting/closing-journal-entries",
+              "documentation/accounting/profit-loss",
+              "documentation/accounting/balance",
+              "documentation/accounting/trial-balance"
             ]
           }
         ]
