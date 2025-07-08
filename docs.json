@@ -23,58 +23,63 @@
             ]
           },
           {
-            "group": "Data Umum",
+            "group": "Panduan Pengguna",
             "pages": [
-              "documentation/master-data/bagan-akun",
-              "documentation/master-data/bank",
-              "documentation/master-data/tax",
-              "documentation/master-data/currency",
-              "documentation/master-data/payment-term",
-              "documentation/master-data/unit",
-              "documentation/master-data/bank-account"
-            ]
-          },
-          {
-            "group": "Pembelian",
-            "pages": [
-              "documentation/purchase/vendor-category",
-              "documentation/purchase/vendor",
-              "documentation/purchase/purchase-invoice",
-              "documentation/purchase/purchase-payment",
-              "documentation/purchase/purchase",
-              "documentation/purchase/purchase-invoice-report"
-            ]
-          },
-          {
-            "group": "Penjualan",
-            "pages": [
-              "documentation/sales/sales-team",
-              "documentation/sales/customer-category",
-              "documentation/sales/customer",
-              "documentation/sales/sales-invoice",
-              "documentation/sales/sales-payment",
-              "documentation/sales/sales",
-              "documentation/sales/sales-team-performance",
-              "documentation/sales/sales-billing-report"
-            ]
-          },
-          {
-            "group": "Keuangan",
-            "pages": [
-              "documentation/finance/closing-cash-bank",
-              "documentation/finance/cash-flow-and-bank",
-              "documentation/finance/cash-book-report"
-            ]
-          },
-          {
-            "group": "Akuntansi",
-            "pages": [
-              "documentation/accounting/journal-transaction",
-              "documentation/accounting/opening-balance",
-              "documentation/accounting/closing-journal-entries",
-              "documentation/accounting/profit-loss",
-              "documentation/accounting/balance-sheet",
-              "documentation/accounting/trial-balance-sheet"
+              {
+                "group": "Data Umum",
+                "pages": [
+                  "documentation/master-data/bagan-akun",
+                  "documentation/master-data/bank",
+                  "documentation/master-data/tax",
+                  "documentation/master-data/currency",
+                  "documentation/master-data/payment-term",
+                  "documentation/master-data/unit",
+                  "documentation/master-data/bank-account"
+                ]
+              },
+              {
+                "group": "Pembelian",
+                "pages": [
+                  "documentation/purchase/vendor-category",
+                  "documentation/purchase/vendor",
+                  "documentation/purchase/purchase-invoice",
+                  "documentation/purchase/purchase-payment",
+                  "documentation/purchase/purchase",
+                  "documentation/purchase/purchase-invoice-report"
+                ]
+              },
+              {
+                "group": "Penjualan",
+                "pages": [
+                  "documentation/sales/sales-team",
+                  "documentation/sales/customer-category",
+                  "documentation/sales/customer",
+                  "documentation/sales/sales-invoice",
+                  "documentation/sales/sales-payment",
+                  "documentation/sales/sales",
+                  "documentation/sales/sales-team-performance",
+                  "documentation/sales/sales-billing-report"
+                ]
+              },
+              {
+                "group": "Keuangan",
+                "pages": [
+                  "documentation/finance/closing-cash-bank",
+                  "documentation/finance/cash-flow-and-bank",
+                  "documentation/finance/cash-book-report"
+                ]
+              },
+              {
+                "group": "Akuntansi",
+                "pages": [
+                  "documentation/accounting/journal-transaction",
+                  "documentation/accounting/opening-balance",
+                  "documentation/accounting/closing-journal-entries",
+                  "documentation/accounting/profit-loss",
+                  "documentation/accounting/balance-sheet",
+                  "documentation/accounting/trial-balance-sheet"
+                ]
+              }
             ]
           }
         ]
