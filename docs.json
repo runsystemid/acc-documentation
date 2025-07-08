@@ -23,7 +23,7 @@
             ]
           },
           {
-            "group": "Master Data",
+            "group": "Data Umum",
             "pages": [
               "documentation/master-data/bagan-akun",
               "documentation/master-data/bank",
@@ -35,7 +35,7 @@
             ]
           },
           {
-            "group": "Purchase",
+            "group": "Pembelian",
             "pages": [
               "documentation/purchase/vendor-category",
               "documentation/purchase/vendor",
@@ -46,7 +46,7 @@
             ]
           },
           {
-            "group": "Sales",
+            "group": "Penjualan",
             "pages": [
               "documentation/sales/sales-team",
               "documentation/sales/customer-category",
@@ -59,7 +59,7 @@
             ]
           },
           {
-            "group": "Finance",
+            "group": "Keuangan",
             "pages": [
               "documentation/finance/closing-cash-bank",
               "documentation/finance/cash-flow-and-bank",
@@ -67,7 +67,7 @@
             ]
           },
           {
-            "group": "Accounting",
+            "group": "Akuntansi",
             "pages": [
               "documentation/accounting/journal-transaction",
               "documentation/accounting/opening-balance",
