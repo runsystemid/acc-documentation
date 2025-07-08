@@ -2,12 +2,42 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Accounting+",
+  "description": "Panduan lengkap dan dokumentasi API untuk Accounting+ - Software akuntansi berbasis cloud dengan AI Personal Assistant untuk kemudahan pengelolaan keuangan bisnis Anda.",
+  "primaryTab": {
+    "name": "Documentation"
+  },
+  "metadata": {
+    "title": "Accounting+ Documentation - Software Akuntansi Cloud dengan AI Assistant",
+    "description": "Panduan lengkap Accounting+ - Software akuntansi berbasis cloud dengan AI Personal Assistant. Pelajari cara mengelola keuangan, laporan akuntansi, dan integrasi API untuk bisnis Anda.",
+    "keywords": "accounting software, software akuntansi, akuntansi cloud, AI assistant, laporan keuangan, jurnal otomatis, API akuntansi, RUN System",
+    "author": "RUN System",
+    "robots": "index, follow",
+    "language": "id-ID",
+    "og:type": "website",
+    "og:title": "Accounting+ Documentation - Software Akuntansi Cloud dengan AI Assistant",
+    "og:description": "Panduan lengkap dan dokumentasi API untuk Accounting+ - Software akuntansi berbasis cloud dengan AI Personal Assistant untuk kemudahan pengelolaan keuangan bisnis.",
+    "og:image": "https://accountingplus.id/wp-content/uploads/2025/05/img-feature-chart.webp",
+    "og:url": "https://docs.accountingplus.id",
+    "og:site_name": "Accounting+ Documentation",
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Accounting+ Documentation - Software Akuntansi Cloud dengan AI Assistant",
+    "twitter:description": "Panduan lengkap dan dokumentasi API untuk Accounting+ - Software akuntansi berbasis cloud dengan AI Personal Assistant.",
+    "twitter:image": "https://accountingplus.id/wp-content/uploads/2025/05/img-feature-chart.webp"
+  },
   "colors": {
     "primary": "#03a9fc",
     "light": "#0799c9",
     "dark": "#1871a1"
   },
   "favicon": "/favicon.ico",
+  "seo": {
+    "indexHiddenPages": false
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_N4jCDHEo5RgNjMYce2sw5YSu5QULmBkQWMro715zwE5"
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -16,7 +46,7 @@
           {
             "group": "Pengenalan",
             "pages": [
-              "documentation/introduction/what-is-accounting+",
+              "index",
               "documentation/introduction/create-account",
               "documentation/introduction/login",
               "documentation/introduction/logout"
