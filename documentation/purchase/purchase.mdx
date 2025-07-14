@@ -2,15 +2,94 @@
 title: "Pembelian"
 ---
 
+## Apa itu Pembelian?
+
+Pembelian pada Accounting\+ digunakan mencatat aktivitas \*\*membeli barang dari pemasok atau vendor \*\*yang kemudian akan dipakai operasional perusahan atau dijual kembali kepada konsumen akhir atau pelanggan.
+
+<Info>
+  Kesepakatan pembelian barang/jasa dengan Vendor/Supplier.
+</Info>
+
 <Tip>
-  **Fitur Search, Filter dan AI**
+  Istilah lain: Pesanan Pembelian/ Purchase Order/ Surat Pesanan
 
-  <Frame>
-    
-  </Frame>
-  Anda dapat mempermudah transaksi menggunakan tiga fitur ini:
-
-  - **Search** : membantu menemukan data dengan cepat dengan cara mengetik kata kunci.
-  - **Filter** : memudahkan fokus pada data yang relevan dengan cara memilih filter.
-  - **Bantuan AI :** membawa kecerdasan dan otomatisasi yang membuat sistem lebih pintar dan responsif terhadap kebutuhan pengguna, Anda langsung mengetik pertanyaan pada field AI.
+  Pembelian dengan status Final dapat dijadikan dasar pembentuk Faktur
 </Tip>
+
+<Warning>
+  Pembelian tidak membentuk Hutang\
+  Pembelian tidak membentuk jurnal
+</Warning>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat, melihat dan mengedit **Pembelian** pada aplikasi Accounting\+.
+
+## Pembelian
+
+1. Klik menu **Pembelian** pada navigasi menu.
+2. Pilih **Transaksi → Pembelian**
+3. Klik tombol **Tambah,** tombol ini berada di pojok kanan atas atau di bagian atas daftar pembelian.
+4. Isikan informasi utama :
+
+![add-purchase.png](/images/add-purchase.png)
+
+| Nama Field        | Keterangan                                                                                                                                                      |
+| :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dokumen#          | Nomor dokumen yang akan otomatis terisi ketika Pembelian di **Simpan**.                                                                                         |
+| Tanggal           | Merupakan tanggal pembuatan Pembelian.                                                                                                                          |
+| Vendor            | Berisi pilihan vendor                                                                                                                                           |
+| Termasuk Pajak    | Pilihan untuk memilih termasuk pajak atau tidak termasuk pajak                                                                                                  |
+| Termin Pembayaran | Pilihan kesepakatan atau perjanjian yang mengatur kapan dan bagaimana pembayaran atas barang atau jasa yang dijual harus dilakukan oleh pembeli kepada penjual. |
+| Catatan           | Berisi catatan tambahan atau remark.                                                                                                                            |
+
+5. Isikan informasi detail :
+
+![data-purchase.png](/images/data-purchase.png)
+
+| Nama Field    | Keterangan                                                                                                                                                                                                   |
+| :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Produk        | Menunjukkan nama atau jenis barang/jasa yang dibeli. Field ini berupa dropdown produk yang sudah terdaftar. Anda dapat langsung menambah produk, terdapat tiga jenis produk yaitu barang, jasa dan konsumsi. |
+| Kuantitas     | Jumlah unit barang yang dibeli.                                                                                                                                                                              |
+| Satuan        | Field ini berupa dropdown satuan yang sudah terdaftar. Satuan pengukuran barang, misalnya pcs (pieces), kg (kilogram), liter, box, dll.                                                                      |
+| Harga         | Harga per satuan barang/jasa. Field ini digunakan untuk menghitung total harga sebelum diskon dan pajak yang dapat diisi dengan nilai numerik dalam mata uang yang berlaku.                                  |
+| Diskon        | Potongan harga yang diberikan untuk barang tersebut. Diskon bisa diisikan berupa persentase (%) dan otomatis akan menghitung nominal rupiah. Field ini mengurangi nilai harga sebelum pajak dihitung.        |
+| Sub Total     | Jumlah harga setelah dikurangi diskon, namun sebelum pajak. Ini adalah nilai dasar yang akan dikenakan pajak dan menjadi dasar perhitungan total harga item tersebut.                                        |
+| Tax           | Jenis pajak yang dikenakan pada barang/jasa, misalnya PPN (Pajak Pertambahan Nilai), PPh, atau pajak lainnya. Field ini biasanya berupa pilihan jenis pajak yang berlaku sesuai regulasi.                    |
+| Calculate Tax | Jumlah nilai pajak yang dikenakan pada subtotal barang tersebut. Ini adalah hasil perhitungan dari persentase pajak dikalikan subtotal.                                                                      |
+| Total         | Jumlah akhir yang harus dibayar untuk item tersebut, yaitu subtotal ditambah total pajak. Ini adalah nilai final yang akan masuk ke total keseluruhan faktur pembelian.                                      |
+
+6. Klik tambah item, untuk menambah item.
+7. Bagian Total, di sini terdapat informasi total sebelum pajak, total pajak, dan total. BIla terdapat biaya lainnya atau ingin melakukan pembulatan bisa dimasukkan di bagian ini
+
+![total-purchase.png](/images/total-purchase.png)
+
+8. Klik **Simpan** tuntuk menyimpan pembuatan pembelian, Klik **Abaikan** untuk membatalkan pembuatan  pembelian.
+
+## Melihat Data Pembelian
+
+1. Setelah di **Simpan**, list pembelian akan ditampilkan sesuai gambar ini:
+
+![list-purchase.png](/images/list-purchase.png)
+
+2. Klik titik tiga di bagian kanan informasi pembelian. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+3. Klik Detail, digunakan untuk melihat detail informasi dari list data.
+
+![detail-purchase.png](/images/detail-purchase.png)
+
+Informasi Utama: 
+
+![general-purchase.png](/images/general-purchase.png)
+
+Detail dan Total:
+
+![total-detail-purchase.png](/images/total-detail-purchase.png)
+
+## Mengedit Pembelian
+
+1. Klik menu **Pembelian** pada navigasi menu.
+2. Pilih **Transaksi → Pembelian**
+3. Klik titik tiga di bagian kanan informasi kategori vendor. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+4. Klik **Edit**, pada faktur pembelian digunakan hanya untuk pembatalan transaksi beserta alasannya.
+
+![edit-purchase.png](/images/edit-purchase.png)
+
+5. Pada bagian detail dan total Pembelian tidak ada yang dapat diubah. Klik **Simpan** tuntuk menyimpan perubahan Pembelian, Klik **Abaikan** untuk membatalkan perubahan Pembelian.
