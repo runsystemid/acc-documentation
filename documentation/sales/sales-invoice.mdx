@@ -1,3 +1,111 @@
 ---
 title: "Faktur Penjualan"
+description: "Tagihan kepada pelanggan/pembeli atas penjualan barang/jasa."
 ---
+
+## Apa itu Faktur Penjualan?
+
+**Faktur penjualan** adalah dokumen resmi yang diterbitkan oleh penjual kepada pembeli sebagai bukti transaksi penjualan barang atau jasa. Dokumen ini berisi rincian mengenai barang/jasa yang dijual, jumlah, harga, pajak, dan total pembayaran yang harus dilakukan oleh pembeli.
+
+<Info>
+  Istilah lain: Sales Invoice/Tagihan Penjualan\
+  Faktur dapat dibuat secara langsung atau berdasarkan Penjualan(Pesanan)\
+  Faktur akan menjadi dasar pembayaran penjualan\
+  Faktur akan menjadi piutang selama belum ada Pembayaran
+</Info>
+
+<Warning>
+  Pembuatan Faktur akan membentuk jurnal secara otomatis\
+  Pembuatan Faktur akan mengurangi persediaan untuk produk jenis barang
+</Warning>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat dan melihat **Faktur Penjualan (Sales Invoice)** pada aplikasi Accounting\+.
+
+## Membuat Faktur Penjualan
+
+1. **Login** ke aplikasi Accounting\+ menggunakan username dan password Anda.
+2. Klik menu **Penjualan** pada navigasi menu.
+3. Pilih **Penjualan → Faktur Penjualan**
+4. Klik tombol **Tambah,** tombol ini berada di pojok kanan atas.
+5. Isikan informasi utama :
+
+![add-salesinvoice.png](/images/add-salesinvoice.png)
+
+| Nama Field     | Keterangan                                                                                                                                                                                                                                                                                                                        |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dokument#      | Nomor dokumen yang akan otomatis terisi ketika faktur penjualan di **Simpan**.                                                                                                                                                                                                                                                    |
+| Tanggal        | Merupakan tanggal pembuatan sales Invoice/faktur penjualan.                                                                                                                                                                                                                                                                       |
+| Pelanggan      | Berisi pilihan pelanggan yang dapat dipilih dropdown.                                                                                                                                                                                                                                                                             |
+| Termasuk Pajak | Pilihan untuk memilih apakah harga produk sudah termasuk pajak atau belum termasuk pajak.                                                                                                                                                                                                                                         |
+| Dari Penjualan | Pilihan untuk menandai apakah faktur penjualan berdasarkan dokumen penjualan atau manual(tidak berdasarkan penjualan).                                                                                                                                                                                                            |
+| Penjualan      | Nomor dokumen penjualan yang menjadi referensi, akan muncul ketika pilihan dari penjualan dipilih.                                                                                                                                                                                                                                |
+| Jatuh Tempo    | Batas pembayaran faktur penjualan.                                                                                                                                                                                                                                                                                                |
+| Pembayaran     | Anda dapat mencatatkan pembayaran/pelunasan faktur penjualan langsung ketika membuat faktur. Saat Anda menggeser sebuah tombol kecil (disebut toggle), akan memunculkan field akun bank untuk memilih rekening penerima uang pembayaran. Apabila faktur langsung dibayarkan, maka dokumen pembayaran lunas akan otomatis terbuat. |
+| Tim Penjualan  | Pilihan tim penjualan                                                                                                                                                                                                                                                                                                             |
+| Catatan        | Catatan tambahan atau keterangan.                                                                                                                                                                                                                                                                                                 |
+
+<Info>
+  - Field **Dari Penjualan**, perlu dipilih ketika bisnis/UMKM yang proses bisnisnya melalui Penjualan/Sales Order terlebih dahulu sebelum Faktur Penjualan.
+
+
+  - Field **Dari Penjualan, **tidak perlu dipilih ketika bisnis/UMKM yang proses bisnisnya tidak melalui Penjualan/Sales Order umumnya pada **Bisnis/UMKM yang bergerak di bidang retail atau penjualan langsung dengan transaksi cepat.** 
+</Info>
+
+6. Tambahkan produk yang akan dijual detail dengan klik Tambah Item : 
+
+![item-salesinvoice.png](/images/item-salesinvoice.png)
+
+Setelah klik Tambah Item, akan muncul tampilan detail produk seperti pada gambar berikut:
+
+![product-salesinvoice.png](/images/product-salesinvoice.png)
+
+<Warning>
+  Pilihan produk pada menu Faktur Penjualan hanya akan memunculkan Jenis Produk Barang atau Jasa.
+</Warning>
+
+| Nama Field        | Keterangan                                                                                                                                                                                            |
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Produk            | Menunjukkan nama atau jenis barang/jasa yang dijual. Field ini berupa dropdown produk yang sudah terdaftar. Anda dapat langsung menambah produk barang atau jasa.                                     |
+| Kuantitas Tagihan | Jumlah unit barang yang dijual.                                                                                                                                                                       |
+| Satuan            | Field ini berupa dropdown satuan yang sudah terdaftar. Satuan pengukuran barang, misalnya pcs (pieces), kg (kilogram), liter, box, dll.                                                               |
+| Harga             | Harga per satuan barang/jasa. Field ini digunakan untuk menghitung total harga sebelum diskon dan pajak yang dapat diisi dengan nilai numerik dalam mata uang yang berlaku.                           |
+| Diskon            | Potongan harga yang diberikan untuk barang tersebut. Diskon bisa diisikan berupa persentase (%) dan otomatis akan menghitung nominal rupiah. Field ini mengurangi nilai harga sebelum pajak dihitung. |
+| Sub Total         | Jumlah harga setelah dikurangi diskon, namun sebelum pajak. Ini adalah nilai dasar yang akan dikenakan pajak dan menjadi dasar perhitungan total harga item tersebut.                                 |
+| Pajak             | Jenis pajak yang dikenakan pada barang/jasa, misalnya PPN (Pajak Pertambahan Nilai), PPh, atau pajak lainnya. Field ini biasanya berupa pilihan jenis pajak yang berlaku sesuai regulasi.             |
+| Nilai Pajak       | Jumlah nilai pajak yang dikenakan pada subtotal barang tersebut. Ini adalah hasil perhitungan dari persentase pajak dikalikan subtotal.                                                               |
+| Total             | Jumlah akhir yang harus dibayar untuk item tersebut, yaitu subtotal ditambah total pajak. Ini adalah nilai final yang akan masuk ke total keseluruhan faktur penjualan.                               |
+
+7. Untuk Menambahkan Produk lain, klik **tambah item** 
+8. Bagian Total, di sini terdapat informasi total sebelum pajak, total pajak, biaya lainnya, pembulatan dan total.
+
+![total-salesinvoice.png](/images/total-salesinvoice.png)
+
+9. Klik **Simpan** tuntuk menyimpan pembuatan faktur penjualan, Klik **Abaikan** untuk membatalkan pembuataan faktur penjualan.
+
+## Melihat Faktur Penjualan
+
+1. Setelah di **Simpan**, list faktur penjualan akan ditampilkan sesuai gambar ini: 
+
+![list-salesinvoice.png](/images/list-salesinvoice.png)
+
+2. Klik titik tiga di bagian kanan informasi Tim Penjualan. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Details dan Edit. 
+3. Klik Details, digunakan untuk melihat detail informasi dari list data.
+4. Pada tampilan detail akan terlihat informasi utama kode dan nama Tim Penjualan.
+
+![detail-salesinvoice.png](/images/detail-salesinvoice.png)
+
+5. Pada tampilan detail, Anda dapat melakukan cetak faktur penjualan melalui ikon **Print**. Setelah klik **Print** maka akan muncul file faktur.
+
+![print-salesinvoice.png](/images/print-salesinvoice.png)
+
+## Membatalkan Faktur Penjualan
+
+1. Klik menu **Penjualan **pada menu navigation.
+2. Pilih **Transaksi → Faktur Penjualan**
+3. Klik titik tiga di bagian kanan informasi Tim Penjualan. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Details dan Edit. 
+4. Klik **Ubah**, digunakan untuk mengedit atau memperbarui data yang sudah ada.
+5. Pada bagian Pembatalan, klik tombol **Batal dan isikan alasan pembatalan**
+
+![cancel-salesinvoice.png](/images/cancel-salesinvoice.png)
+
+6. Klik **Simpan** tuntuk menyimpan perubahan informasi faktur penjualan, Klik **Abaikan** untuk membatalkan perubahan faktur penjualan. 
