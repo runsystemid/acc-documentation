@@ -1,3 +1,102 @@
 ---
 title: "Pembayaran Penjualan"
+description: "Pembayaran/Pelunasan atas Tagihan Penjualan dari pelanggan/pembeli"
 ---
+
+## Apa itu Pembayaran Penjualan? 
+
+Pada Accounting\+, pembayaran penjualan merupakan proses setelah faktur dikeluarkan yaitu pelanggan membayar kepada perusahaan atas penjualan barang atau jasa layanan yang dilakukan perusahaan. 
+
+<Info>
+  Istilah lain: Nota Pembayaran/ Kwitansi Pembayaran\
+  Pembayaran dibuat berdasarkan Faktur/Tagihan dengan status Final\
+  Pembayaran bisa dibuat otomatis ketika membuat Faktur
+</Info>
+
+<Warning>
+  Pembayaran akan mengurangi nilai piutang dari Faktur/Tagihan Penjualan\
+  Pembayaran akan membentuk jurnal otomatis\
+  Pembayaran akan mempengaruhi Laporan Arus Kas dan Buku Kas
+</Warning>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat, melihat dan mengedit pembayaran penjualan pada aplikasi Accounting\+.
+
+## Membuat Pembayaran Penjualan
+
+1. Klik menu Penjualan pada navigasi menu.
+2. Pilih **Penjualan →  Pembayaran Penjualan**
+3. Klik tombol **Tambah, **tombol ini berada di pojok kanan atas.
+4. Isikan informasi utama: 
+
+![add-salesinvoice.png](/images/add-salesinvoice.png)
+
+| Nama Field | Keterangan                                                                            |
+| :--------- | :------------------------------------------------------------------------------------ |
+| Dokumen#   | Nomor dokumen yang akan otomatis terisi ketika Pembayaran Penjualan di **Simpan**.    |
+| Tanggal    | Merupakan tanggal pembuatan Pembayaran Penjualan.                                     |
+| Pelanggan  | Berisi pilihan pelanggan                                                              |
+| Akun Bank  | Field berbentuk dropdown untuk memilih akun bank yang digunakan pembayaran penjualan. |
+
+5. Anda harus mengisikan Pelanggan terlebih dahulu agar dapat menambahkan Faktur Penjualan.
+6. Klik Tambah Item, untuk menambah faktur penjualan.
+
+![item-salesinvoice.png](/images/item-salesinvoice.png)
+
+7. Akan muncul pop up yang berisikan list faktur penjualan, Klik Checklist lalu klik **Choose** untuk memilih faktur penjualan. 
+
+   <Info>
+     Faktur yang tampil merupakan faktur yang memiliki status final. \
+     Anda bisa memilih beberapa faktur dari satu Pelanggan untuk dibayarkan sekaligus
+   </Info>
+
+![faktur-salesinvoice.png](/images/faktur-salesinvoice.png)
+
+8. Setelah faktur dipilih akan muncul field yang perlu diisi. 
+
+![payment-salespayment.png](/images/payment-salespayment.png)
+
+| Nama Field     | Keterangan                                                                                                                                                                                                                           |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nomor Faktur   | Merupakan nomor unik yang otomatis diberikan pada faktur penjualan. Nomor faktur menjadi referensi utama untuk pencatatan dan pelacakan penjualan.                                                                                   |
+| Tanggal Faktur | Tanggal diterbitkannya faktur penjualan. Field ini penting untuk menentukan periode transaksi, penghitungan jatuh tempo pembayaran, serta pencatatan akuntansi sesuai periode yang benar.                                            |
+| Total Faktur   | Jumlah keseluruhan nilai faktur penjualan sebelum dikurangi pembayaran, diskon, atau biaya tambahan. Ini adalah nilai total tagihan yang harus dibayar oleh pembeli.                                                                 |
+| Terutang       | Jumlah saldo yang masih harus dibayar dari faktur tersebut setelah dikurangi pembayaran yang sudah dilakukan sebelumnya. Field ini menunjukkan sisa kewajiban pembayaran yang belum lunas.                                           |
+| Bayar          | Jumlah yang dibayarkan untuk mengurangi hutang faktur atas pembayaran yang dilakukan.                                                                                                                                                |
+| Diskon         | Potongan harga atau pengurangan nilai pembayaran yang diberikan pada saat pembayaran. Diskon ini bisa berupa diskon tunai, diskon pembayaran cepat, atau diskon khusus lainnya yang mengurangi jumlah yang harus dibayar.            |
+| Biaya Lainnya  | Biaya tambahan yang mungkin dikenakan dalam proses penjualan, seperti biaya pengiriman, biaya administrasi, atau biaya lain yang terkait dengan transaksi penjualan. Field ini menambah nilai total yang harus dibayar oleh pembeli. |
+| Pembayaran     | Merupakan total nilai pembayaran bersih dan uang yang diterima hasil dari jumlah bayar ditambah biaya lainnya dan dikurangi diskon. Field ini menunjukkan nilai akhir yang dibayarkan oleh pembeli pada faktur tersebut.             |
+
+ 9. Isikan nominal bayar penjualan, diskon dan biaya apabila terdapat biaya tambahan.
+
+    <Info>
+      **Pop Up Diskon**
+
+      <img
+        src="/images/discount-salesinvoice.png"
+        alt="discount-salesinvoice.png"
+        title="discount-salesinvoice.png"
+        style={{ width:"73%" }}
+      />
+
+      **Nominal Diskon dapat dihitung dengan mengisi Persentase, atau dengan menginputkan Nominal secara langsung**
+    </Info>
+10. Bagian Total, terdapat informasi Total Faktur Dibayar, Total Diskon, Total Biaya, Total Pembayaran\
+    Disini anda juga bisa menginputkan biaya lainnya diluar dari pelunasan faktur untuk menambahkan nominal, ataupun Potongan lainnya untuk mengurangi total pembayaran
+
+![total-salesinvoice.png](/images/total-salesinvoice.png)
+
+11. Klik **Simpan** tuntuk menyimpan pembayaran penjualan, Klik **Abaikan** untuk membatalkan pembayaran penjualan.
+
+![save-salesinvoice.png](/images/save-salesinvoice.png)
+
+## Membatalkan Pembayaran Penjualan
+
+1. Klik menu **Penjualan **pada menu navigation.
+2. Pilih **Transaksi → Pembayarn Penjualan**
+3. Klik titik tiga di bagian kanan informasi Tim Penjualan. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+4. Klik **Edit**, digunakan untuk mengedit atau memperbarui data yang sudah ada.
+5. Pada bagian Pembatalan, klik tombol **Batal dan isikan alasan pembatalan**
+
+![cancel-salesinvoice.png](/images/cancel-salesinvoice.png)
+
+6. Klik **Simpan** untuk menyimpan pembatalan pembayaran penjualan.  
