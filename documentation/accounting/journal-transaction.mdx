@@ -1,3 +1,95 @@
 ---
-title: "Transaksi Jurnal"
+title: "Jurnal Transaksi"
+description: "Pencatatan transaksi Keuangan/Akuntansi pembentuk Laporan Keuangan"
 ---
+
+## Apa itu Jurnal Transaksi?
+
+**Jurnal Transaksi** sebagai catatan utama secara akuntansi yang mendokumentasikan seluruh aktivitas keuangan perusahaan secara sistematis dan kronologis. Proses pengisian jurnal melibatkan input manual dan otomatis yang kemudian diverifikasi untuk memastikan keakuratan dan kelengkapan data.
+
+<Info>
+  Istilah Lain: Pembukuan/ Jurnal Umum / Penjurnalan\
+  Jurnal secara otomatis terbentuk otomatis dari transaksi Faktur Pembelian, Faktur Pembayaran, Pembayaran Penjualan, Pembayaran Pembelian dan pembatalan.Membuat Jurnal Transaksi Manual
+</Info>
+
+<Warning>
+  Jurnal transaksi mempengaruhi Neraca dan Laporan Arus Kas\
+  Setiap pembuatan Jurnal tidak boleh terdapat selisih antara Debit dan Kredit
+</Warning>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat dan melihat **Jurnal Transaksi **pada aplikasi Accounting\+.
+
+## Membuat Jurnal Transaksi
+
+**Akuntansi → Transaksi → Jurnal Transaksi**
+
+1. Klik menu Akuntansi pada navigasi menu.
+2. Pilih **Akuntansi → Transaction → Jurnal Transaksi**
+3. Klik tombol **Tambah,** tombol ini berada di pojok kanan atas.
+4. Isikan informasi utama:
+
+![add-journal.png](/images/add-journal.png)
+
+| Nama Field | Keterangan                                                                         |
+| :--------- | :--------------------------------------------------------------------------------- |
+| Document   | Nomor dokumen yang akan otomatis terisi ketika Pembayaran Penjualan di **Simpan**. |
+| Tanggal    | Tanggal transaksi.                                                                 |
+| Deskripsi  | Keterangan transaksi Penjurnalan                                                   |
+| Catatan    | Informasi tambahan                                                                 |
+
+5. Isikan detail Bagan Akun dengan cara klik **Tambah Item**, maka akan muncul pop up list akun. Pilih nama akun sesuai kebutuhan (bisa memilih lebih dari satu), lalu klik **Pilih.**
+
+![item-journal.png](/images/item-journal.png)
+
+<Info>
+  **Pop up pilihan Bagan Akun**
+
+  ![coa-journal.png](/images/coa-journal.png)
+</Info>
+
+6. Isikan nominal Debit dan Kredit pada bagan akun yang akan dijurnal
+
+![balance-journal.png](/images/balance-journal.png)
+
+7. Klik **Simpan** untuk menyimpan dokumen jurnal transaksi, Klik **Abaikan** untuk membatalkan
+
+![save-journal.png](/images/save-journal.png)
+
+## Melihat Jurnal Transaksi
+
+1. Setelah di **Simpan**, list jurnal transaksi akan ditampilkan sesuai gambar dibawah ini: 
+
+![list-journal.png](/images/list-journal.png)
+
+| Nama Field | Keterangan                                               |
+| :--------- | :------------------------------------------------------- |
+| Dokumen    | Nomor dokumen yang akan otomatis untuk Jurnal Transaksi. |
+| Tanggal    | Merupakan tanggal pembuatan Jurnal Transaksi.            |
+| Deskripsi  | Keterangan tambahan.                                     |
+| Bagan Akun | Nama bagan akun.                                         |
+| Menu       | Informasi sumber transaksi pembentuk jurnal              |
+| Debit      | Kelompok akun debit.                                     |
+| Kredit     | Kelompok akun kredit.                                    |
+
+<Info>
+  Field Menu dapat Anda gunakan untuk membedakan sumber jurnal transaksi.
+</Info>
+
+2. Klik titik tiga di bagian kanan informasi faktur pembelian. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+3. Klik Detail, digunakan untuk melihat detail informasi dari list data.
+
+**Informasi Utama: **
+
+![header-journal.png](/images/header-journal.png)
+
+**Informasi Detail Bagan Akun: **
+
+![detail-journal.png](/images/detail-journal.png)
+
+<Warning>
+  Pada menu **Jurnal Transaksi** tidak ada menu **Edit dan pembatalan, **untuk menjaga keakuratan, keamanan, dan keandalan data keuangan. Pembatasan ini penting untuk **memenuhi standar akuntansi, regulasi, dan audit**.
+</Warning>
+
+<Tip>
+  Ketika transaksi pembentuk jurnal otomatis dibatalkan, maka akan otomatis membentuk jurnal pembalik
+</Tip>
