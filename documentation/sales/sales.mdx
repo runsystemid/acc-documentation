@@ -1,5 +1,100 @@
 ---
 title: "Penjualan"
+description: "Kesepakatan penjualan barang/jasa dengan pelanggan/pembeli"
 ---
 
-## 
+## Apa itu Penjualan?
+
+Pada Accounting\+, pencatatan transaksi proses atau aktivitas menjual produk atau jasa kepada pelanggan dengan tujuan mendapatkan imbalan berupa uang atau nilai lain yang disepakati. Penjualan merupakan salah satu fungsi utama dalam bisnis yang berperan langsung dalam menghasilkan pendapatan perusahaan. 
+
+- **Bisnis/UMKM dengan produk/jasa yang memerlukan konfirmasi pesanan, stok khusus, atau pengiriman bertahap** umumnya menggunakan **proses Sales OrderPenjualan/Pesanan/Sales Order**. Ini membantu mengurangi kesalahan, mengelola stok dengan baik, dan memberikan kepastian kepada pelanggan. Penggunaan Sales Order juga membantu dalam pencatatan dan pelaporan bisnis yang lebih rapi, terutama jika UMKM ingin berkembang dan mengelola piutang dengan baik.
+
+  **Penjualan → Faktur Penjualan → Pembayaran Penjualan**
+- **Bisnis/UMKM yang bergerak di bidang retail atau penjualan langsung dengan transaksi cepat** bisa menggunakan alur tanpa Penjualan/Sales Order untuk efisiensi waktu dan kemudahan transaksi.
+
+  **Faktur Penjualan  → Pembayaran Penjualan**
+
+<Info>
+  Istilah lain: Pesanan Penjualan/ Sales Order/ Surat Pesanan \
+  Penjualan dengan status Final dapat dijadikan dasar pembentuk Faktur/Tagihan
+</Info>
+
+<Warning>
+  Penjualan tidak membentuk Hutang\
+  Penjualan tidak membentuk jurnal
+</Warning>
+
+Berikut ini adalah panduan langkah demi langkah untuk membuat, melihat dan mengedit **Penjualan** pada aplikasi Accounting\+.
+
+## Membuat Penjualan
+
+1. Klik menu **Penjualan** pada navigasi menu.
+2. Pilih **Transaksi → Penjualan.**
+3. Klik tombol **Tambah, **tombol ini berada di pojok kanan atas atau di bagian atas daftar penjualan. 
+4. Isikan informasi utama :
+
+![add-salesorder.png](/images/add-salesorder.png)
+
+| Nama Field        | Keterangan                                                                                                                                                                      |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Nomor Dokumen     | Nomor dokumen yang akan otomatis terisi ketika Penjualan di **Simpan**.                                                                                                         |
+| Tanggal Dokumen   | Merupakan tanggal pembuatan Penjualan.                                                                                                                                          |
+| Pelanggan         | Berisi pilihan pelanggan.                                                                                                                                                       |
+| Termasuk Pajak    | Pilihan untuk memilih apakah harga produk sudah termasuk pajak atau belum termasuk pajak.                                                                                       |
+| Termin Pembayaran | Termin penjualan adalah kesepakatan atau perjanjian yang mengatur kapan dan bagaimana pembayaran atas barang atau jasa yang dijual harus dilakukan oleh pembeli kepada penjual. |
+| Tim Penjualan     | Pilihan tim penjualan.                                                                                                                                                          |
+| Deskripsi         | Keterangan tambahan atau catatan.                                                                                                                                               |
+
+<Info>
+  Field **"Termasuk Pajak atau Tidak"** adalah opsi dalam menu penjualan yang berfungsi untuk menentukan apakah harga satuan yang tercantum sudah **termasuk pajak** (misalnya PPN) atau **belum termasuk pajak**.
+</Info>
+
+5. Klik **Tambah Item,** untuk menambah item. Isikan informasi detail : 
+
+![product-salesorder.png](/images/product-salesorder.png)
+
+<Info>
+  Pilihan produk yang muncul pada menu Faktur Penjualan hanya Jenis Produk Barang atau Jasa.
+</Info>
+
+| Nama Field  | Keterangan                                                                                                                                                                                                   |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Produk      | Menunjukkan nama atau jenis barang/jasa yang dijual. Field ini berupa dropdown produk yang sudah terdaftar. Anda dapat langsung menambah produk, terdapat tiga jenis produk yaitu barang, jasa dan konsumsi. |
+| Kuantitas   | Jumlah unit barang yang dibeli.                                                                                                                                                                              |
+| Satuan      | Field ini berupa dropdown satuan yang sudah terdaftar. Satuan pengukuran barang, misalnya pcs (pieces), kg (kilogram), liter, box, dll.                                                                      |
+| Harga       | Harga per satuan barang/jasa. Field ini digunakan untuk menghitung total harga sebelum diskon dan pajak yang dapat diisi dengan nilai numerik dalam mata uang yang berlaku.                                  |
+| Diskon      | Potongan harga yang diberikan untuk barang tersebut. Diskon bisa diisikan berupa persentase (%) dan otomatis akan menghitung nominal rupiah. Field ini mengurangi nilai harga sebelum pajak dihitung.        |
+| Sub Total   | Jumlah harga setelah dikurangi diskon, namun sebelum pajak. Ini adalah nilai dasar yang akan dikenakan pajak dan menjadi dasar perhitungan total harga item tersebut.                                        |
+| Pajak       | Jenis pajak yang dikenakan pada barang/jasa, misalnya PPN (Pajak Pertambahan Nilai), PPh, atau pajak lainnya. Field ini biasanya berupa pilihan jenis pajak yang berlaku sesuai regulasi.                    |
+| Total Pajak | Jumlah nilai pajak yang dikenakan pada subtotal barang tersebut. Ini adalah hasil perhitungan dari persentase pajak dikalikan subtotal.                                                                      |
+| Total       | Jumlah akhir yang harus dibayar untuk item tersebut, yaitu subtotal ditambah total pajak.                                                                                                                    |
+
+6. Bagian Total, di sini terdapat informasi total sebelum pajak, total pajak, dan total.
+
+![total-salesorder.png](/images/total-salesorder.png)
+
+7. Klik **Simpan** untuk menyimpan pembuatan penjualan, Klik **Abaikan** untuk membatalkan pembuatan  penjualan.
+
+## Melihat Penjualan
+
+1. Setelah di **Simpan**, list penjualan akan ditampilkan sesuai gambar ini: 
+
+![list-salesorder.png](/images/list-salesorder.png)
+
+2. Klik titik tiga di bagian kanan informasi Tim Penjualan. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+3. Klik Detail, digunakan untuk melihat detail informasi dari list data.
+
+![detail- salesorder.png](/images/detail-salesorder.png)
+
+4. Pada tampilan detail akan ditampilkan informasi utama, detail dan total.
+
+## Mengedit Penjualan
+
+1. Klik menu **Penjualan **pada navigasi menu.
+2. Pilih **Transaksi → Penjualan**
+3. Klik titik tiga di bagian kanan informasi Tim Penjualan. Titik tiga ini merupakan **_More Options _**yang terdiri dari pilihan Detail dan Edit. 
+
+![edit-salesorder.png](/images/edit-salesorder.png)
+
+4. Klik **Ubah/Edit**, digunakan untuk mengedit atau memperbarui data yang sudah ada.
+5. Anda hanya dapat mengubah pembatalan, filed lainnya tidak dapat dirubah.
