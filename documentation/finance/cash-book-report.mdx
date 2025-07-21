@@ -1,3 +1,55 @@
 ---
 title: "Laporan Buku Kas"
+description: "Laporan transaksi tiap rekening Kas & Bank selama periode tertentu"
 ---
+
+## Apa itu Laporan Buku Kas?
+
+Laporan Buku Kas mencatat semua transaksi kas masuk dan kas keluar secara rinci dalam periode tertentu, sehingga memberikan gambaran lengkap tentang pergerakan uang tunai.
+
+<Info>
+  Data pada Laporan Buku Kas sesuai dengan semua transaksi yang melibatkan penerimaan dan pengeluaran kas dicatat secara real-time (arus kas & bank) dalam Accounting\+.
+</Info>
+
+<Tip>
+  **Laporan buku kas** hanya menampilkan akun bank yang pernah digunakan untuk transaksi penerimaan dan pengeluaran uang pada transaksi **Faktur Penjualan**, **Pembayaran Penjualan, Faktur Pembelian, Pembayaran Pembelian, serta Arus Kas Bank**.
+</Tip>
+
+Berikut ini adalah panduan langkah demi langkah untuk membaca **Laporan Buku Kas** pada aplikasi Accounting\+.
+
+## Membaca Laporan
+
+**Navigasi melalui Keuangan → Laporan → Laporan Buku Kas**
+
+![cashbook-detail.png](/images/cashbook-detail.png)
+
+| Nama Field     | Keterangan                                                                                  |
+| :------------- | :------------------------------------------------------------------------------------------ |
+| Akun Bank      | Menunjukkan nama akun bank yang digunakan untuk transaksi kas.                              |
+| Kode Bank      | Kode unik yang mengidentifikasi bank terkait dalam laporan.                                 |
+| Nomor Rekening | Nomor rekening bank yang digunakan untuk mencatat transaksi kas.                            |
+| Bulan          | Bulan periode laporan buku kas tersebut.                                                    |
+| Tahun          | Tahun periode laporan buku kas tersebut.                                                    |
+| Mata Uang      | Jenis mata uang yang digunakan dalam transaksi kas (misal: IDR, USD)                        |
+| Saldo Awal     | Jumlah uang yang tersedia di awal periode laporan.                                          |
+| Uang Masuk     | Total uang yang masuk atau diterima selama periode laporan.                                 |
+| Uang Keluar    | Total uang yang keluar atau dibayarkan selama periode laporan.                              |
+| Saldo          | Jumlah uang yang tersisa setelah dikurangi uang keluar dari saldo awal ditambah uang masuk. |
+
+## Contoh Membaca Laporan
+
+![cashbook-esxample.png](/images/cashbook-esxample.png)
+
+**Pembacaan Laporan Buku Kas - Bank Juni 2025**
+
+Pada laporan Buku Kas untuk akun Bank dengan kode 0002 dan nomor rekening 1.102.002, pada bulan Juni tahun 2025, menggunakan mata uang Rupiah (IDR), tercatat saldo awal sebesar nol rupiah.
+
+Selama periode tersebut, terdapat uang masuk (setoran atau penerimaan) sebesar **500.000 rupiah**. Namun di sisi lain, uang keluar (pengeluaran atau penarikan) mencapai jumlah **790.000 rupiah**.
+
+Akibat dari jumlah uang keluar yang lebih besar dibandingkan uang masuk itu, saldo akhir yang tercatat menjadi **minus 290.000 rupiah**.
+
+Kondisi saldo negatif ini mengindikasikan bahwa pengeluaran melebihi penerimaan di periode ini, sehingga perlu adanya perhatian khusus, baik dalam pengelolaan kas maupun pencarian sumber dana tambahan agar saldo kembali positif.
+
+Anda dapat melihat detail dengan klik ikon detail di sisi paling kanan seperti ini: 
+
+![cashbook-transaction.png](/images/cashbook-transaction.png)
