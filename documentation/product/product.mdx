@@ -1,4 +1,83 @@
 ---
 title: "Produk"
-description: "Description of your new file."
+description: "Mengelola data utama semua produk atau barang dan jasa yang dijual atau digunakan dalam operasional perusahaan."
 ---
+
+## Apa itu Produk?
+
+Produk adalah semua barang dan jasa yang digunakan  untuk keperluan bisnis (jual dan beli) dan operasional (konsumsi) perusahaan.
+
+<Info>
+  Menu ini berfungsi untuk **mencatat, menyimpan, dan mengatur informasi penting** tentang produk, seperti nama, kode produk, kategori, satuan, harga, tipe (barang/jasa), dan informasi lainnya.
+</Info>
+
+<Warning>
+  - Master produk aktif dapat ditransaksikan pada menu **Pembelian dan Faktur Pembelian**
+  - Master produk nonaktif tidak dapat digunakan untuk membuat dokumen \*\*Pembelian dan Faktur Pembelian baru \*\*
+  - Master produk dengan tipe Jasa & Konsumsi langsung dicatatkan sebagai biaya berdasarkan \*\*Pemetaan Akun Biaya Konsumsi \*\*sebagai biaya
+  - Master produk dengan tipe tipe barang dan jasa dapat ditransaksikan pada menu \*\*Penjualan dan Faktur Penjualan \*\*
+  - Perhitungan HPP untuk setiap produk dihitung dengan formula nilai persediaan dibagi dengan total persediaan dengan metode moving average
+</Warning>
+
+berikut ini adalah panduan langkah demi langkah untuk membuat, melihat dan mengedit data master \*\*Produk \*\*pada aplikasi Accounting\+.
+
+## Membuat Produk
+
+1. Klik menu **Produk** pada navigasi menu.
+2. Pilih **Data Master → Produk**
+3. Klik tombol \*\*Tambah, \*\*tombol ini berada di pojok kanan atas.
+4. Isikan field pada informasi utama :
+
+| Nama Field      | Keterangan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Unggah Foto     | Anda dapat mengunggah foto produk yang anda kelola pada field ini.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Kode            | Kode produk adalah identifikasi unik untuk setiap produk. Kode ini akan otomatis terisi ketika Anda klik tombol Simpan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Jenis Produk    | Terdapat tiga jenis produk pada Accounting\+ yaitu:  1. **Barang: **Produk fisik yang digunakan untuk penjualan.    - Dicatat sebagai persediaan.    - Digunakan pada proses pembelian dan penjualan.    - Saat dibeli → menambah persediaan.    - Saat dijual → mengurangi persediaan dan dicatat sebagai HPP. 2. **Jasa: **Produk non-fisik tanpa persediaan.    - Tidak dicatat sebagai persediaan.    - Digunakan pada proses pembelian dan penjualan.    - Saat dibeli → langsung dicatat sebagai biaya. 3. **Konsumsi: **Produk untuk keperluan operasional.    - Tidak dicatat sebagai persediaan.    - Hanya digunakan pada proses pembelian.    - Saat dibeli → langsung dicatat sebagai biaya |
+| Satuan          | Field ini terdapat pilihan satuan produk/Unit of Measure seperti box, ball, rim dll.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Nama            | Anda dapat mengisikan nama produk pada field ini. Nama produk adalah nama lengkap dari produk yang Anda jual atau kelola.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Kategori        | Kategori adalah pengelompokan produk berdasarkan karakteristik atau fungsinya, misalnya elektronik, alat tulis, makanan, minuman, dan lain-lain.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Mata Uang       | Field ini digunakan untuk menentukan jenis mata uang yang digunakan untuk harga produk.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Harga Beli      | Sebagai acuan harga ketika proses pembelian                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Harga Jual      | Sebagai acuan harga ketika proses penjualan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Unggah Lampiran | Memungkinkan pengguna untuk mengunggah file yang berkaitan dengan produk.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Catatan         | Catatan digunakan untuk memasukkan informasi tambahan atau keterangan khusus mengenai produk.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+5. Saat memilih jenis produk, produk barang akan memunculkan field yang berbeda dengan jenis jasa dan konsumsi.
+
+### **JENIS PRODUK BARANG**
+
+**Pada saat Anda memilih jenis produk barang, akan muncul isian informasi harga dasar dan harga pokok penjualan.**
+
+<Info>
+  **Harga Dasar: Sebagai acuan harga ketika proses pembelian atau penjualan**
+</Info>
+
+| Nama Field | Keterangan                                                                              |
+| :--------- | :-------------------------------------------------------------------------------------- |
+| Mata Uang  | Field ini digunakan untuk menentukan jenis mata uang yang digunakan untuk harga produk. |
+| Harga Beli | Harga beli menunjukkan harga acuan yang dibayarkan ketika membeli produk dari vendor.   |
+| Harga Jual | Harga jual adalah harga yang ditetapkan untuk menjual produk ke pelanggan.              |
+
+<Info>
+  **Harga Pokok Penjualan: Sebagai informasi kuantitas dan nilai stok awal barang tersebut**
+</Info>
+
+| Nama Field       | Keterangan                                                                                                                         |
+| :--------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Total Stok       | Total Stok adalah jumlah persediaan barang saat ini yang akan dijadikan persediaan awal                                            |
+| Nilai Persediaan | Nilai Persediaan adalah nilai total secara Harga atau biaya yang dikeluarkan untuk Persediaan Tersebut                             |
+| Nilai HPP        | Nilai HPP (Harga Pokok Penjualan) nilai satuan barang tesebut berdasarkan perhitungan Nilai Persediaan awal dibagi Total Stok awal |
+
+**JENIS PRODUK JASA & KONSUMSI**
+
+<Info>
+  **Harga Dasar: Sebagai acuan harga ketika proses pembelian atau penjualan**
+</Info>
+
+| Nama Field | Keterangan                                                                              |
+| :--------- | :-------------------------------------------------------------------------------------- |
+| Mata Uang  | Field ini digunakan untuk menentukan jenis mata uang yang digunakan untuk harga produk. |
+| Harga Beli | Harga beli menunjukkan harga acuan yang dibayarkan ketika membeli produk dari vendor.   |
+| Harga Jual | Harga jual adalah harga yang ditetapkan untuk menjual produk ke pelanggan.              |
+
+Klik **Simpan** untuk menyimpan Produk , Klik **Abaikan** untuk membatalkan Produk. 
