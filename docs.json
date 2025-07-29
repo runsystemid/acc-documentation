@@ -56,7 +56,15 @@
           {
             "group": "Panduan Pengguna",
             "pages": [
-                            {
+               {
+                "group": "Produk",
+                "pages": [
+                  "documentation/product/product-category",
+                  "documentation/product/product",
+                  "documentation/product/inventory"
+                ]
+              },            
+              {
                 "group": "Pembelian",
                 "pages": [
                   "documentation/purchase/vendor-category",
