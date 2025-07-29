@@ -56,19 +56,7 @@
           {
             "group": "Panduan Pengguna",
             "pages": [
-              {
-                "group": "Data Umum",
-                "pages": [
-                  "documentation/master-data/bagan-akun",
-                  "documentation/master-data/bank",
-                  "documentation/master-data/tax",
-                  "documentation/master-data/currency",
-                  "documentation/master-data/payment-term",
-                  "documentation/master-data/unit",
-                  "documentation/master-data/bank-account"
-                ]
-              },
-              {
+                            {
                 "group": "Pembelian",
                 "pages": [
                   "documentation/purchase/vendor-category",
@@ -109,6 +97,18 @@
                   "documentation/accounting/profit-loss",
                   "documentation/accounting/balance-sheet",
                   "documentation/accounting/trial-balance-sheet"
+                ]
+              },
+              {
+                "group": "Data Umum",
+                "pages": [
+                  "documentation/master-data/bagan-akun",
+                  "documentation/master-data/bank",
+                  "documentation/master-data/tax",
+                  "documentation/master-data/currency",
+                  "documentation/master-data/payment-term",
+                  "documentation/master-data/unit",
+                  "documentation/master-data/bank-account"
                 ]
               }
             ]
