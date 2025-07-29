@@ -1,19 +1,21 @@
 ---
 title: "Persediaan"
-description: "Description of your new file."
+description: "Mengelola dan memantau jumlah stok/persediaan produk yang tersedia."
 ---
 
 ## Apa itu Persediaan?
 
 Persediaan merupakan barang atau bahan yang disimpan untuk dipakai, dijual, atau diproses oleh perusahaan.
 
-Mengelola dan memantau jumlah stok produk yang tersedia.
+<Info>
+  Menu ini mencatat **pergerakan keluar dan masuknya barang** (seperti pembelian, penjualan, dan penyesuaian stok), sehingga membantu perusahaan mengetahui posisi stok secara real-time.
+</Info>
 
-Menu ini mencatat **pergerakan keluar dan masuknya barang** (seperti pembelian, penjualan, dan penyesuaian stok), sehingga membantu perusahaan mengetahui posisi stok secara real-time.
-
-- Data Produk yang tercatat pada menu persediaan adalah produk dengan tipe barang dan berstatus aktif
-- Penambahan nilai persediaan dan kuantitas persediaan diakibatkan oleh input pada transaksi input master data produk, faktur penjualan dan penyesuaian persediaan
-- pengurangan nilai persediaan dan kuantitas persediaan diakibatkan oleh input pada transaksi input faktur penjualan dan penyesuaian persediaan
+<Tip>
+  - Data Produk yang tercatat pada menu persediaan adalah produk dengan tipe barang dan berstatus aktif
+  - Penambahan nilai persediaan dan kuantitas persediaan diakibatkan oleh input pada transaksi input master data produk, faktur penjualan dan penyesuaian persediaan
+  - pengurangan nilai persediaan dan kuantitas persediaan diakibatkan oleh input pada transaksi input faktur penjualan dan penyesuaian persediaan
+</Tip>
 
 Berikut ini adalah panduan mengelola data Persediaan pada aplikasi Accounting\+.
 
@@ -22,3 +24,46 @@ Berikut ini adalah panduan mengelola data Persediaan pada aplikasi Accounting\+.
 1. Klik menu **Produk** pada navigasi menu.
 2. Pilih **Transaksi → Persediaan**
 3. Tampilan yang pertama Anda Lihat adalah list persediaan barang:
+
+![list-inventory.png](/images/list-inventory.png)
+
+Keterangan field pada list Persediaan
+
+| Nama Field       | Keterangan                                                                                                                                         |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Kode Produk      | Identifikasi unik untuk setiap produk agar mudah dikenali dan dibedakan dari produk lain.                                                          |
+| Nama Produk      | Nama atau sebutan produk yang digunakan untuk memudahkan pencarian dan pengenalan produk.                                                          |
+| Kuantitas        | Jumlah unit produk yang tersedia saat ini berdasarkan stok awal, pembelian, penjualan ataupun penyesuaian persediaan                               |
+| Nilai Persediaan | Menggambarkan nilai total persediaan produk yang ada saat ini berdasarkan Pembelian, Penjualan ataupun penyesuaian produk                          |
+| Nilai HPP        | Menunjukkaan nilai Harga Pokok Penjualan per satuan produk tersebut, nilai ini secara otomatis terhitung berdasarkan pergerakan persediaan barang. |
+
+| No. | Action        | Keterangan                                                                                                                            |
+| :-: | :------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.  | Tambah Produk | Pintasan untuk Anda menambahkan produk baru.                                                                                          |
+| 2.  | Penyesuaian   | Fungsi penyesuaian persediaan adalah untuk mengubah jumlah kuantitas dan Nilai persediaan agar sesuai dengan kondisi nyata di gudang. |
+
+## Menyesuaikan Persediaan
+
+1. Klik menu **Produk** pada navigasi menu.
+2. Pilih **Transaksi → Persediaan**
+3. Klik tombol penyesuaian.
+
+![adjust-inventory.png](/images/adjust-inventory.png)
+
+4. Centang barang yang akan dilakukan penyesuaian(bisa lebih dari satu), lalu klik pilih.
+
+![item-inventory.png](/images/item-inventory.png)
+
+5. Sesuaikan tanggal penyesuaian, setelah itu ketik kuantitas baru sesuai dengan persediaan asli dan klik Simpan untuk menyimpan penyesuaian.
+
+![edit-inventory.png](/images/edit-inventory.png)
+
+| Nama Field              | Keterangan                                                                                                 |
+| :---------------------- | :--------------------------------------------------------------------------------------------------------- |
+| Kode Produk             | Identifikasi unik untuk setiap produk sehingga dapat dibedakan dari produk lainnya.                        |
+| Nama Produk             | Nama atau label produk untuk memudahkan pengenalan dan pencarian produk.                                   |
+| Kuantitas (Lama)        | Menunjukkan jumlah stok produk yang tersedia sebelum ada perubahan atau pembaruan data.                    |
+| Nilai Persediaan (Lama) | Menggambarkan nilai moneter dari jumlah stok produk yang ada sebelum pembaruan berdasarkan harga pokoknya. |
+| HPP (Lama)              | Menunjukkan harga pokok penjualan produk yang telah dihitung sebelum adanya pembaruan data.                |
+| Kuantitas (Baru)        | Menunjukkan jumlah stok produk terbaru setelah perubahan atau pembaruan data.                              |
+| Nilai Persediaan (Baru) | Menggambarkan nilai moneter dari stok produk terbaru setelah pembaruan .                                   |
