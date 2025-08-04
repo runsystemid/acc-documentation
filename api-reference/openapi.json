@@ -2397,12 +2397,6 @@
             "items": {
               "$ref": "#/components/schemas/PurchaseInvoiceItemRequest"
             }
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Attachment"
-            }
           }
         }
       },
