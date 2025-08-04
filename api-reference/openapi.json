@@ -19,7 +19,8 @@
   ],
   "security": [
     {
-      "bearerAuth": []
+      "bearerAuth": [],
+      "signatureKey": []
     }
   ],
   "tags": [
@@ -1089,28 +1090,28 @@
       },
       "post": {
         "tags": [
-          "Purchase Invoices"
+          "Sales Invoices"
         ],
-        "summary": "Create Purchase Invoice",
-        "description": "Create a new purchase invoice",
+        "summary": "Create Sales Invoice",
+        "description": "Create a new sales invoice",
         "requestBody": {
-          "description": "Purchase invoice details",
+          "description": "Sales invoice details",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreatePurchaseInvoiceRequest"
+                "$ref": "#/components/schemas/CreateSalesInvoiceRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Purchase invoice created successfully",
+            "description": "Sales invoice created successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                  "$ref": "#/components/schemas/SalesInvoiceDetailResponse"
                 }
               }
             }
@@ -2578,58 +2579,37 @@
       },
       "CreateSalesInvoiceRequest": {
         "type": "object",
+        "required": [
+          "customer_name",
+          "document_date",
+          "bank_account_code",
+          "items"
+        ],
         "properties": {
-          "rounding_amount": {
-            "type": "number",
-            "example": 0
-          },
-          "discount_amount": {
-            "type": "number",
-            "example": 0
-          },
-          "other_amount": {
-            "type": "number",
-            "example": 0
-          },
-          "tax_included_indicator": {
-            "type": "boolean",
-            "example": false
-          },
-          "document_status": {
+          "customer_name": {
             "type": "string",
-            "enum": [
-              "D",
-              "F",
-              "M",
-              "C"
-            ],
-            "example": "D"
-          },
-          "sales_order_document_number": {
-            "type": "string",
-            "example": "00001/SO/03/25"
-          },
-          "customer_code": {
-            "type": "string",
-            "example": "0124"
-          },
-          "due_date": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2025-10-11T00:00:00Z"
+            "example": "PT. ABC"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
             "example": "2025-10-11T00:00:00Z"
           },
-          "document_number": {
+          "bank_account_code": {
             "type": "string",
-            "example": "00001/FPB/03/25"
+            "example": "001"
           },
-          "customer_name": {
-            "type": "string",
-            "example": "PT. ABC"
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
           },
           "items": {
             "type": "array",
@@ -3250,7 +3230,14 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "bearerFormat": "JWT",
+        "description": "Generate a JWT signed with the `client_secret` and include the `client_id` as a claim in its payload."
+      },
+      "signatureKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "ACC-Signature",
+        "description": "Generate the signature by creating an `SHA256-HMAC` hash of the payload, using the `client_secret` as the key. Then, `Base64-encode` the resulting hash and place the final value in the ACC-Signature header."
       }
     }
   }
