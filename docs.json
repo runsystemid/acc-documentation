@@ -56,14 +56,14 @@
           {
             "group": "Panduan Pengguna",
             "pages": [
-               {
+              {
                 "group": "Produk",
                 "pages": [
                   "documentation/product/product-category",
                   "documentation/product/product",
                   "documentation/product/inventory"
                 ]
-              },            
+              },
               {
                 "group": "Pembelian",
                 "pages": [
@@ -131,6 +131,15 @@
             "pages": [
               "api-reference/get-started",
               "api-reference/quickstart"
+            ]
+          },
+          {
+            "group": "Faktur Pembelian",
+            "pages": [
+              "api-reference/endpoint/purchase-invoice-list",
+              "api-reference/endpoint/purchase-invoice-get",
+              "api-reference/endpoint/purchase-invoice-create",
+              "api-reference/endpoint/purchase-invoice-update"
             ]
           },
           {

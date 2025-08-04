@@ -30,6 +30,10 @@
     {
       "name": "Journals",
       "description": "Journal transaction management"
+    },
+    {
+      "name": "Purchase Invoices",
+      "description": "Purchase invoice management"
     }
   ],
   "paths": {
@@ -555,6 +559,383 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/purchase-invoices": {
+      "get": {
+        "tags": [
+          "Purchase Invoices"
+        ],
+        "summary": "List Purchase Invoices",
+        "description": "Retrieve a list of purchase invoices with filtering options",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "document_status",
+            "in": "query",
+            "description": "Document status filter",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "D",
+                "F",
+                "M",
+                "C"
+              ]
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Month filter",
+            "schema": {
+              "type": "string",
+              "example": "09"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Year filter",
+            "schema": {
+              "type": "string",
+              "example": "2025"
+            }
+          },
+          {
+            "name": "tax_code",
+            "in": "query",
+            "description": "Tax code filter",
+            "schema": {
+              "type": "string",
+              "example": "005"
+            }
+          },
+          {
+            "name": "vendor_code",
+            "in": "query",
+            "description": "Vendor code filter",
+            "schema": {
+              "type": "string",
+              "example": "00001"
+            }
+          },
+          {
+            "name": "list_of_outstanding",
+            "in": "query",
+            "description": "List of outstanding filter",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "process_status",
+            "in": "query",
+            "description": "Process status filter",
+            "schema": {
+              "type": "string",
+              "example": "UP"
+            }
+          },
+          {
+            "name": "vendor_name",
+            "in": "query",
+            "description": "Vendor name filter",
+            "schema": {
+              "type": "string",
+              "example": "PT. Test"
+            }
+          },
+          {
+            "name": "document_number",
+            "in": "query",
+            "description": "Document number filter",
+            "schema": {
+              "type": "string",
+              "example": "00001/PI/03/25"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purchase invoices retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseInvoiceListResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error get purchase invoice data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU05"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "error get purchase invoice data"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Purchase Invoices"
+        ],
+        "summary": "Create Purchase Invoice",
+        "description": "Create a new purchase invoice",
+        "requestBody": {
+          "description": "Purchase invoice details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePurchaseInvoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Purchase invoice created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction data purchase order not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU11"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "transaction data purchase order not found"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Multiple tax codes are not allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU03"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "multiple tax codes are not allowed"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/purchase-invoices/{document_number}": {
+      "get": {
+        "tags": [
+          "Purchase Invoices"
+        ],
+        "summary": "Get Purchase Invoice by ID",
+        "description": "Retrieve a specific purchase invoice by document number",
+        "parameters": [
+          {
+            "name": "document_number",
+            "in": "path",
+            "required": true,
+            "description": "Document number (URL encoded)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purchase invoice retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Purchase invoice data not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU04"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "purchase invoice data not found"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Purchase Invoices"
+        ],
+        "summary": "Update Purchase Invoice",
+        "description": "Update a purchase invoice",
+        "parameters": [
+          {
+            "name": "document_number",
+            "in": "path",
+            "required": true,
+            "description": "Document number (URL encoded)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Purchase invoice details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePurchaseInvoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Purchase invoice updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Transaction data purchase invoice data not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU11"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "transaction data purchase invoice data not found"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Document date should be same month and year with current month and year",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU03"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "document date should be same month and year with current month and year"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
                 }
               }
             }
@@ -1104,6 +1485,581 @@
           "credit": {
             "type": "number",
             "example": 0
+          }
+        }
+      },
+      "PurchaseInvoiceListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "document_number": {
+                  "type": "string",
+                  "example": "00001/FPB/03/25"
+                },
+                "purchase_order_document_number": {
+                  "type": "string",
+                  "example": "00001/PO/03/25"
+                },
+                "document_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2025-03-19T00:00:00Z"
+                },
+                "vendor_code": {
+                  "type": "string",
+                  "example": "0124"
+                },
+                "vendor_name": {
+                  "type": "string",
+                  "example": "PT. ABC"
+                },
+                "currency_code": {
+                  "type": "string",
+                  "example": "IDR"
+                },
+                "currency_name": {
+                  "type": "string",
+                  "example": "IDR Jakartan"
+                },
+                "document_status": {
+                  "type": "string",
+                  "enum": [
+                    "Draft",
+                    "Final",
+                    "Manual Fullfilment",
+                    "Cancelled"
+                  ],
+                  "example": "Draft"
+                },
+                "process_status": {
+                  "type": "string",
+                  "example": "Belum Lunas"
+                },
+                "due_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2025-03-19T00:00:00Z"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Description"
+                },
+                "sub_total_amount": {
+                  "type": "number",
+                  "example": 5600
+                },
+                "total_tax_amount": {
+                  "type": "number",
+                  "example": 630
+                },
+                "other_amount": {
+                  "type": "number",
+                  "example": 100
+                },
+                "discount_amount": {
+                  "type": "number",
+                  "example": 2000
+                },
+                "rounding_amount": {
+                  "type": "number",
+                  "example": -10
+                },
+                "total_amount": {
+                  "type": "number",
+                  "example": 4320
+                },
+                "total_payment": {
+                  "type": "number",
+                  "example": 0
+                },
+                "outstanding_amount": {
+                  "type": "number",
+                  "example": 0
+                },
+                "tax_included_indicator": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "aging_days": {
+                  "type": "integer",
+                  "example": 9
+                },
+                "vendor_invoice_number": {
+                  "type": "string",
+                  "example": "test123456"
+                },
+                "vendor_address": {
+                  "type": "string",
+                  "example": "Jl. Raya No. 1"
+                },
+                "auto_create_payment": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "bank_account_code": {
+                  "type": "string",
+                  "example": "001"
+                },
+                "bank_account_name": {
+                  "type": "string",
+                  "example": "Kas Kecil"
+                },
+                "created_by": {
+                  "type": "string",
+                  "example": "John Doe"
+                },
+                "cancel_reason": {
+                  "type": "string",
+                  "example": "Cancel reason"
+                }
+              }
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "PurchaseInvoiceDetailResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PurchaseInvoiceDetail"
+          }
+        }
+      },
+      "PurchaseInvoiceDetail": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "purchase_order_document_number": {
+            "type": "string",
+            "example": "00001/PO/03/25"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "vendor_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "vendor_name": {
+            "type": "string",
+            "example": "PT. ABC"
+          },
+          "currency_code": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "currency_name": {
+            "type": "string",
+            "example": "IDR Jakartan"
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "Draft",
+              "Final",
+              "Manual Fullfilment",
+              "Cancelled"
+            ],
+            "example": "Draft"
+          },
+          "process_status": {
+            "type": "string",
+            "example": "Belum Lunas"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "example": "Description"
+          },
+          "sub_total_amount": {
+            "type": "number",
+            "example": 5600
+          },
+          "total_tax_amount": {
+            "type": "number",
+            "example": 630
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 100
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 2000
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": -10
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 4320
+          },
+          "total_payment": {
+            "type": "number",
+            "example": 0
+          },
+          "outstanding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "aging_days": {
+            "type": "integer",
+            "example": 9
+          },
+          "vendor_invoice_number": {
+            "type": "string",
+            "example": "test123456"
+          },
+          "vendor_address": {
+            "type": "string",
+            "example": "Jl. Raya No. 1"
+          },
+          "auto_create_payment": {
+            "type": "boolean",
+            "example": false
+          },
+          "bank_account_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "bank_account_name": {
+            "type": "string",
+            "example": "Kas Kecil"
+          },
+          "created_by": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "cancel_reason": {
+            "type": "string",
+            "example": "Cancel reason"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseInvoiceItem"
+            }
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attachment"
+            }
+          }
+        }
+      },
+      "CreatePurchaseInvoiceRequest": {
+        "type": "object",
+        "required": [
+          "document_date",
+          "vendor_code",
+          "document_status",
+          "process_status",
+          "bank_account_code"
+        ],
+        "properties": {
+          "auto_create_payment": {
+            "type": "boolean",
+            "example": true
+          },
+          "bank_account_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "D",
+              "F",
+              "M",
+              "C"
+            ],
+            "example": "D"
+          },
+          "vendor_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "cancel_indicator": {
+            "type": "string",
+            "enum": [
+              "Y",
+              "N"
+            ],
+            "example": "N"
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 2000
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": -10
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 100
+          },
+          "process_status": {
+            "type": "string",
+            "example": "UP"
+          },
+          "purchase_order_document_number": {
+            "type": "string",
+            "example": "00001/PO/03/25"
+          },
+          "currency_code": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "vendor_invoice_number": {
+            "type": "string",
+            "example": ""
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseInvoiceItemRequest"
+            }
+          }
+        }
+      },
+      "UpdatePurchaseInvoiceRequest": {
+        "type": "object",
+        "properties": {
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "D",
+              "F",
+              "M",
+              "C"
+            ],
+            "example": "D"
+          },
+          "vendor_code": {
+            "type": "string",
+            "example": "00001"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "process_status": {
+            "type": "string",
+            "example": "UP"
+          },
+          "purchase_order_document_number": {
+            "type": "string",
+            "example": ""
+          },
+          "currency_code": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "vendor_invoice_number": {
+            "type": "string",
+            "example": "test123456"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseInvoiceItemRequest"
+            }
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attachment"
+            }
+          }
+        }
+      },
+      "PurchaseInvoiceItemRequest": {
+        "type": "object",
+        "properties": {
+          "item_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "unit_of_measurement_code": {
+            "type": "string",
+            "example": "Hour"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1
+          },
+          "unit_price": {
+            "type": "number",
+            "example": 15000000
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 1000000
+          },
+          "tax_code": {
+            "type": "string",
+            "example": "004"
+          }
+        }
+      },
+      "PurchaseInvoiceItem": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "detail_number": {
+            "type": "string",
+            "example": "00001"
+          },
+          "item_code": {
+            "type": "string",
+            "example": "PNB01-000002"
+          },
+          "item_name": {
+            "type": "string",
+            "example": "Pembelian"
+          },
+          "uom_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "uom_name": {
+            "type": "string",
+            "example": "Hour"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1
+          },
+          "unit_price": {
+            "type": "number",
+            "example": 15000000
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 100000
+          },
+          "sub_total_amount": {
+            "type": "number",
+            "example": 14900000
+          },
+          "tax_code": {
+            "type": "string",
+            "example": "004"
+          },
+          "tax_name": {
+            "type": "string",
+            "example": "PPh 21 rate 6"
+          },
+          "tax_rate": {
+            "type": "number",
+            "example": -6
+          },
+          "total_tax_amount": {
+            "type": "number",
+            "example": -894000
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 14006000
+          }
+        }
+      },
+      "Attachment": {
+        "type": "object",
+        "properties": {
+          "file_name": {
+            "type": "string",
+            "example": "850f8007ccce42b3802c7e6f624f7f3c.jpg"
+          },
+          "file_size": {
+            "type": "number",
+            "example": 68498
+          },
+          "generated_filename": {
+            "type": "string",
+            "example": "tenant_code/master_item/cb9232e2-301a-47a0-aa13-107cb812f11d.jpg"
+          },
+          "generated_thumbnail_filename": {
+            "type": "string",
+            "example": "tenant_code/master_item/thumbnails/cb9232e2-301a-47a0-aa13-107cb812f11d_thumbnail.jpg"
           }
         }
       },
