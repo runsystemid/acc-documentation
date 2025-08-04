@@ -942,6 +942,453 @@
           }
         }
       }
+    },
+    "/v1/sales-invoices": {
+      "get": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "summary": "List Sales Invoices",
+        "description": "Retrieve a list of sales invoices with filtering options",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "document_status",
+            "in": "query",
+            "description": "Document status filter",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "D",
+                "F",
+                "M",
+                "C"
+              ]
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Month filter",
+            "schema": {
+              "type": "string",
+              "example": "09"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Year filter",
+            "schema": {
+              "type": "string",
+              "example": "2025"
+            }
+          },
+          {
+            "name": "tax_code",
+            "in": "query",
+            "description": "Tax code filter",
+            "schema": {
+              "type": "string",
+              "example": "005"
+            }
+          },
+          {
+            "name": "customer_name",
+            "in": "query",
+            "description": "Customer name filter",
+            "schema": {
+              "type": "string",
+              "example": "PT. ABC"
+            }
+          },
+          {
+            "name": "document_number",
+            "in": "query",
+            "description": "Document number filter",
+            "schema": {
+              "type": "string",
+              "example": "00001/FPB/03/25"
+            }
+          },
+          {
+            "name": "customer_code",
+            "in": "query",
+            "description": "Customer code filter",
+            "schema": {
+              "type": "string",
+              "example": "0124"
+            }
+          },
+          {
+            "name": "process_status",
+            "in": "query",
+            "description": "Process status filter",
+            "schema": {
+              "type": "string",
+              "example": "OP"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sales invoices retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesInvoiceListResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error get sales invoice data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU05"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "error get sales invoice data"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Purchase Invoices"
+        ],
+        "summary": "Create Purchase Invoice",
+        "description": "Create a new purchase invoice",
+        "requestBody": {
+          "description": "Purchase invoice details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePurchaseInvoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Purchase invoice created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tax item not valid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU03"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "tax item not valid"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sales-invoices/{document_number}": {
+      "get": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "summary": "Get Sales Invoice by ID",
+        "description": "Retrieve a specific sales invoice by document number",
+        "parameters": [
+          {
+            "name": "document_number",
+            "in": "path",
+            "required": true,
+            "description": "Document number (URL encoded)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sales invoice retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sales invoice data not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU04"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "error sales invoice not found"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "summary": "Update Sales Invoice",
+        "description": "Update a sales invoice",
+        "parameters": [
+          {
+            "name": "document_number",
+            "in": "path",
+            "required": true,
+            "description": "Document number (URL encoded)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Sales invoice details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSalesInvoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sales invoice updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesInvoiceDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Transaction data sales order not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU11"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "transaction data sales order not found"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Edit not allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "BERU03"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "edit not allowed"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sales-invoices/customers": {
+      "get": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "summary": "Get Sales Invoice Customers",
+        "description": "Retrieve a list of customers for sales invoices",
+        "responses": {
+          "200": {
+            "description": "Sales invoice customers retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesInvoiceCustomersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sales-orders": {
+      "get": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "schema": {
+              "type": "number",
+              "example": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          },
+          {
+            "name": "invoice_indicator",
+            "in": "query",
+            "description": "Invoice indicator filter",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        ],
+        "summary": "Get Sales Order",
+        "description": "Retrieve a list of sales orders",
+        "responses": {
+          "200": {
+            "description": "Sales order retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesOrderListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sales-orders/{document_number}": {
+      "get": {
+        "tags": [
+          "Sales Invoices"
+        ],
+        "summary": "Get Sales Order by ID",
+        "description": "Retrieve a specific sales order by document number",
+        "parameters": [
+          {
+            "name": "document_number",
+            "in": "path",
+            "required": true,
+            "description": "Document number (URL encoded)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sales order retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesOrderDetailResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2049,6 +2496,694 @@
           "total_amount": {
             "type": "number",
             "example": 14006000
+          }
+        }
+      },
+      "SalesInvoiceListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SalesInvoiceListItem"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "SalesInvoiceListItem": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "customer_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "customer_name": {
+            "type": "string",
+            "example": "PT. ABC"
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "Draft",
+              "Final",
+              "Canceled"
+            ],
+            "example": "Draft"
+          },
+          "process_status": {
+            "type": "string",
+            "example": "Belum Lunas"
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 17460000
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "total_payment": {
+            "type": "number",
+            "example": 17460000
+          },
+          "aging_days": {
+            "type": "integer",
+            "example": 9
+          },
+          "total_outstanding": {
+            "type": "number",
+            "example": 17460000
+          },
+          "created_by": {
+            "type": "string",
+            "example": "John Doe"
+          }
+        }
+      },
+      "CreateSalesInvoiceRequest": {
+        "type": "object",
+        "properties": {
+          "rounding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "D",
+              "F",
+              "M",
+              "C"
+            ],
+            "example": "D"
+          },
+          "sales_order_document_number": {
+            "type": "string",
+            "example": "00001/SO/03/25"
+          },
+          "customer_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-10-11T00:00:00Z"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-10-11T00:00:00Z"
+          },
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "customer_name": {
+            "type": "string",
+            "example": "PT. ABC"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SalesInvoiceItemRequest"
+            }
+          }
+        }
+      },
+      "UpdateSalesInvoiceRequest": {
+        "type": "object",
+        "properties": {
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-10-11T00:00:00Z"
+          },
+          "sales_order_document_number": {
+            "type": "string",
+            "example": "00001/SO/03/25"
+          },
+          "customer_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "currency_code": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "D",
+              "F",
+              "M",
+              "C"
+            ],
+            "example": "D"
+          },
+          "sales_person_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-10-11T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "example": "Description"
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SalesInvoiceItemRequest"
+            }
+          }
+        }
+      },
+      "SalesInvoiceItemRequest": {
+        "type": "object",
+        "properties": {
+          "item_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1
+          },
+          "unit_of_measurement_code": {
+            "type": "string",
+            "example": "Box"
+          },
+          "unit_price": {
+            "type": "number",
+            "example": 1000000
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 100000
+          },
+          "tax_code": {
+            "type": "string",
+            "example": "004"
+          }
+        }
+      },
+      "SalesInvoiceDetailResponse": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "document_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "sales_order_document_number": {
+            "type": "string",
+            "example": "00001/SO/03/25"
+          },
+          "customer_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "customer_name": {
+            "type": "string",
+            "example": "PT. ABC"
+          },
+          "customer_address": {
+            "type": "string",
+            "example": "Jl. Raya No. 123"
+          },
+          "document_status": {
+            "type": "string",
+            "enum": [
+              "Draft",
+              "Final",
+              "Canceled"
+            ],
+            "example": "Final"
+          },
+          "process_status": {
+            "type": "string",
+            "example": "Belum Lunas"
+          },
+          "cancel_reason": {
+            "type": "string",
+            "example": "Cancel reason"
+          },
+          "currency_code": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "currency_name": {
+            "type": "string",
+            "example": "Rupiah Indonesia"
+          },
+          "sales_person_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "sales_person_name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-03-19T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "example": "Description"
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
+          },
+          "sub_total_amount": {
+            "type": "number",
+            "example": 1000000
+          },
+          "total_tax_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "rounding_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 1000000
+          },
+          "outstanding_amount": {
+            "type": "number",
+            "example": 1000000
+          },
+          "auto_create_payment": {
+            "type": "boolean",
+            "example": false
+          },
+          "bank_account_code": {
+            "type": "string",
+            "example": "001"
+          },
+          "bank_account_name": {
+            "type": "string",
+            "example": "Kas Kecil"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SalesInvoiceItem"
+            }
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attachment"
+            }
+          }
+        }
+      },
+      "SalesInvoiceItem": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/FPB/03/25"
+          },
+          "detail_number": {
+            "type": "string",
+            "example": "0001"
+          },
+          "item_code": {
+            "type": "string",
+            "example": "PNJ01-000001"
+          },
+          "item_name": {
+            "type": "string",
+            "example": "Penjualan"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1
+          },
+          "unit_of_measurement_code": {
+            "type": "string",
+            "example": "Pcs"
+          },
+          "unit_of_measurement_name": {
+            "type": "string",
+            "example": "Pieces"
+          },
+          "unit_price": {
+            "type": "number",
+            "example": 1000
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "sub_total_amount": {
+            "type": "number",
+            "example": 1000
+          },
+          "tax_code": {
+            "type": "string",
+            "example": ""
+          },
+          "tax_name": {
+            "type": "string",
+            "example": ""
+          },
+          "tax_rate": {
+            "type": "number",
+            "example": 0
+          },
+          "total_tax": {
+            "type": "number",
+            "example": 0
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 1000
+          }
+        }
+      },
+      "SalesInvoiceCustomersResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "code": "00001",
+                "name": "PT. ABC"
+              },
+              {
+                "code": "00002",
+                "name": "PT. DEF"
+              }
+            ]
+          }
+        }
+      },
+      "SalesOrderListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "document_number": {
+                  "type": "string",
+                  "example": "00001/SO/03/25"
+                },
+                "document_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2025-03-19T00:00:00Z"
+                },
+                "customer_code": {
+                  "type": "string",
+                  "example": "00001"
+                },
+                "customer_name": {
+                  "type": "string",
+                  "example": "PT. ABC"
+                },
+                "document_status": {
+                  "type": "string",
+                  "enum": [
+                    "Draft",
+                    "Final",
+                    "Canceled"
+                  ],
+                  "example": "Draft"
+                },
+                "process_status": {
+                  "type": "string",
+                  "example": "UP"
+                }
+              }
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "SalesOrderDetailResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "document_number": {
+                "type": "string",
+                "example": "00001/SO/03/25"
+              },
+              "document_date": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2025-03-19T00:00:00Z"
+              },
+              "customer_code": {
+                "type": "string",
+                "example": "00001"
+              },
+              "customer_name": {
+                "type": "string",
+                "example": "PT. ABC"
+              },
+              "sales_person_code": {
+                "type": "string",
+                "example": "00001"
+              },
+              "sales_person_name": {
+                "type": "string",
+                "example": "John Doe"
+              },
+              "payment_term_code": {
+                "type": "string",
+                "example": "TOP30D"
+              },
+              "payment_term_name": {
+                "type": "string",
+                "example": "30-day"
+              },
+              "document_status": {
+                "type": "string",
+                "enum": [
+                  "Draft",
+                  "Final",
+                  "Canceled"
+                ],
+                "example": "Draft"
+              },
+              "process_status": {
+                "type": "string",
+                "example": "Belum Lunas"
+              },
+              "description": {
+                "type": "string",
+                "example": "Sample description"
+              },
+              "tax_included_indicator": {
+                "type": "string",
+                "example": "N"
+              },
+              "sub_total_amount": {
+                "type": "number",
+                "example": 1000000
+              },
+              "total_tax_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "other_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "discount_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "rounding_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "total_amount": {
+                "type": "number",
+                "example": 1000000
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SalesOrderItem"
+                }
+              }
+            }
+          }
+        }
+      },
+      "SalesOrderItem": {
+        "type": "object",
+        "properties": {
+          "document_number": {
+            "type": "string",
+            "example": "00001/SO/03/25"
+          },
+          "detail_number": {
+            "type": "string",
+            "example": "0001"
+          },
+          "item_code": {
+            "type": "string",
+            "example": "00001"
+          },
+          "item_name": {
+            "type": "string",
+            "example": "Besi ringan"
+          },
+          "unit_of_measurement_code": {
+            "type": "string",
+            "example": "Pcs"
+          },
+          "unit_of_measurement_name": {
+            "type": "string",
+            "example": "Pieces"
+          },
+          "unit_price": {
+            "type": "number",
+            "example": 1250
+          },
+          "discount_amount": {
+            "type": "number",
+            "example": 50
+          },
+          "sub_total_amount": {
+            "type": "number",
+            "example": 1200
+          },
+          "tax_code": {
+            "type": "string",
+            "example": "004"
+          },
+          "tax_name": {
+            "type": "string",
+            "example": "PPN 10%"
+          },
+          "total_tax": {
+            "type": "number",
+            "example": 120
+          },
+          "total_amount": {
+            "type": "number",
+            "example": 1200
           }
         }
       },

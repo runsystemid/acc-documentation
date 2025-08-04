@@ -143,6 +143,18 @@
             ]
           },
           {
+            "group": "Faktur Penjualan",
+            "pages": [
+              "api-reference/endpoint/sales-invoice-list",
+              "api-reference/endpoint/sales-invoice-get",
+              "api-reference/endpoint/sales-invoice-create",
+              "api-reference/endpoint/sales-invoice-update",
+              "api-reference/endpoint/sales-invoice-customers",
+              "api-reference/endpoint/sales-order-list",
+              "api-reference/endpoint/sales-order-get"
+            ]
+          },
+          {
             "group": "Arus Kas Bank",
             "pages": [
               "api-reference/endpoint/voucher-list",

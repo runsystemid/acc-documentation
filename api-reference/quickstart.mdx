@@ -92,20 +92,42 @@ All API responses follow a consistent format:
 
 ### Document Status Codes
 
-Understanding status codes used throughout the API:
+- Voucher
+  | Code | Description                           |
+  | ---- | ------------------------------------- |
+  | `D`  | Draft - Document is in draft state    |
+  | `F`  | Final - Document has been finalized   |
+  | `C`  | Canceled - Document has been canceled |
 
-| Code | Description                           |
-| ---- | ------------------------------------- |
-| `D`  | Draft - Document is in draft state    |
-| `F`  | Final - Document has been finalized   |
-| `C`  | Canceled - Document has been canceled |
+- Purchase Invoice & Sales Invoice
+  | Code | Description                                         |
+  | ---- | --------------------------------------------------- |
+  | `D`  | Draft - Document is in draft state                  |
+  | `F`  | Final - Document has been finalized                 |
+  | `M`  | Manual Fullfilment - Document is manually fulfilled |
+  | `C`  | Canceled - Document has been canceled               |
 
 ### Process Status Codes
 
-For voucher process statuses:
+- Voucher
+  | Code | Description                   |
+  | ---- | ----------------------------- |
+  | `T`  | Transfer Dana - Fund transfer |
+  | `S`  | Kirim Dana - Send funds       |
+  | `R`  | Terima Dana - Receive funds   |
 
-| Code | Description                   |
-| ---- | ----------------------------- |
-| `T`  | Transfer Dana - Fund transfer |
-| `S`  | Kirim Dana - Send funds       |
-| `R`  | Terima Dana - Receive funds   |
+- Purchase invoice & Sales Order
+  | Code | Description                               |
+  | ---- | ----------------------------------------- |
+  | `UP` | Unpaid - Has not been paid at all         |
+  | `PP` | Partially Paid - Has been partially paid  |
+  | `FP` | Fully Paid - Has been fully paid          |
+
+- Sales Invoice
+  | Code | Description                                                           |
+  | ---- | --------------------------------------------------------------------- |
+  | `OP` | Open - Invoice has been issued but not yet processed for payment      |
+  | `PI` | Partially Invoiced - Some items/services have been invoiced           |
+  | `FI` | Fully Invoiced - All items/services have been invoiced                |
+  | `PP` | Partially Paid - Invoice has been partially paid                      |
+  | `FP` | Fully Paid - Invoice has been fully paid                              |
