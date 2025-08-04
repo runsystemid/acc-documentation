@@ -1792,7 +1792,8 @@
           "vendor_code",
           "document_status",
           "process_status",
-          "bank_account_code"
+          "bank_account_code",
+          "items"
         ],
         "properties": {
           "auto_create_payment": {
@@ -1877,6 +1878,15 @@
       },
       "UpdatePurchaseInvoiceRequest": {
         "type": "object",
+        "required": [
+          "document_number",
+          "document_date",
+          "vendor_code",
+          "document_status",
+          "process_status",
+          "bank_account_code",
+          "items"
+        ],
         "properties": {
           "tax_included_indicator": {
             "type": "boolean",
