@@ -3544,7 +3544,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "A-Signature",
-        "description": "Generate the signature by creating an `SHA256-HMAC` hash of the payload, using the `client_secret` as the key. Then, `Base64-encode` the resulting hash and place the final value in the ACC-Signature header."
+        "description": "Generate the signature by creating an `SHA256-HMAC` hash of the payload, using the `signature_secret` as the key. Then, `Base64-encode` the resulting hash and place the final value in the A-Signature header."
       },
       "dataKey": {
         "type": "apiKey",
