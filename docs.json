@@ -142,13 +142,13 @@
             ]
           },
           {
-            "group": "Faktur Pembelian",
+            "group": "Purchase Invoice",
             "pages": [
               "api-reference/endpoint/purchase-invoice-create"
             ]
           },
           {
-            "group": "Faktur Penjualan",
+            "group": "Sales Invoice",
             "pages": [
               "api-reference/endpoint/sales-invoice-create"
             ]
