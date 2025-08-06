@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "https://{url}",
+      "url": "https://staging-openapi.accountingplus.id",
       "description": "Main API Server",
       "variables": {
         "url": {
-          "default": "api.example.com",
+          "default": "https://staging-openapi.accountingplus.id",
           "description": "The API base URL"
         }
       }
@@ -20,7 +20,8 @@
   "security": [
     {
       "bearerAuth": [],
-      "signatureKey": []
+      "signatureKey": [],
+      "dataKey": []
     }
   ],
   "tags": [
@@ -38,6 +39,93 @@
     }
   ],
   "paths": {
+    "/oauth/clients/accesstoken": {
+      "post": {
+        "tags": [
+          "OAuth"
+        ],
+        "summary": "Get Access Token",
+        "description": "Get an access token for the client",
+        "requestBody": {
+          "description": "Client credentials",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "client_secret"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "string"
+                  },
+                  "client_secret": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Access token generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "organization_name": {
+                      "type": "string",
+                      "example": "PT. Test"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "example": "thepartner"
+                    },
+                    "access_token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 3600
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "ACC07"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid client credentials"
+                    },
+                    "traceId": {
+                      "type": "string",
+                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/v1/vouchers": {
       "get": {
         "tags": [
@@ -749,23 +837,70 @@
             }
           },
           "404": {
-            "description": "Transaction data purchase order not found",
+            "description": "Unprocessable entity",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "status": {
-                      "type": "string",
-                      "example": "BERU11"
+                      "type": "string"
                     },
                     "message": {
-                      "type": "string",
-                      "example": "transaction data purchase order not found"
+                      "type": "string"
                     },
                     "traceId": {
-                      "type": "string",
-                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Unprocessable Entity 1": {
+                    "summary": "Invalid transaction data purchase order",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "transaction data purchase order not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unprocessable Entity 2": {
+                    "summary": "Invalid master data currency",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "master data currency not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unprocessable Entity 3": {
+                    "summary": "Invalid parameter data product inventory",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "parameter data product inventory not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unprocessable Entity 4": {
+                    "summary": "Invalid parameter data other purchasing expenses",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "parameter data other purchasing expenses not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unprocessable Entity 5": {
+                    "summary": "Invalid parameter data account payable",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "parameter data account payable not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unprocessable Entity 6": {
+                    "summary": "Invalid parameter data consumption expense",
+                    "value": {
+                      "status": "ACC09",
+                      "message": "parameter data consumption expense not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
                     }
                   }
                 }
@@ -773,23 +908,38 @@
             }
           },
           "400": {
-            "description": "Multiple tax codes are not allowed",
+            "description": "Invalid request",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "status": {
-                      "type": "string",
-                      "example": "BERU03"
+                      "type": "string"
                     },
                     "message": {
-                      "type": "string",
-                      "example": "multiple tax codes are not allowed"
+                      "type": "string"
                     },
                     "traceId": {
-                      "type": "string",
-                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Invalid Request 1": {
+                    "summary": "Multiple tax codes are not allowed",
+                    "value": {
+                      "status": "ACC03",
+                      "message": "multiple tax codes are not allowed",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Invalid Request 2": {
+                    "summary": "Invalid expired date",
+                    "value": {
+                      "status": "ACC03",
+                      "message": "expired date should be later or equal to document date",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
                     }
                   }
                 }
@@ -1117,23 +1267,46 @@
             }
           },
           "400": {
-            "description": "Tax item not valid",
+            "description": "Invalid request",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "status": {
-                      "type": "string",
-                      "example": "BERU03"
+                      "type": "string"
                     },
                     "message": {
-                      "type": "string",
-                      "example": "tax item not valid"
+                      "type": "string"
                     },
                     "traceId": {
-                      "type": "string",
-                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Invalid Request 1": {
+                    "summary": "Invalid tax item",
+                    "value": {
+                      "status": "ACC03",
+                      "message": "tax item not valid",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Invalid Request 2": {
+                    "summary": "Invalid consumption item",
+                    "value": {
+                      "status": "ACC03",
+                      "message": "consumption items cannot be used in sales invoice",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Invalid Request 3": {
+                    "summary": "Invalid item",
+                    "value": {
+                      "status": "ACC03",
+                      "message": "item not valid",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
                     }
                   }
                 }
@@ -1384,6 +1557,158 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SalesOrderDetailResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dashboard/accountings": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Get Dashboard Accounting",
+        "description": "Retrieve data of dashboard accounting",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Year",
+            "schema": {
+              "type": "number",
+              "example": 2025
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Month",
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dashboard accounting retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "00"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "net_profit_margin": {
+                          "type": "number",
+                          "example": 79.37
+                        },
+                        "percentage_not_profit_margin": {
+                          "type": "number",
+                          "example": 0.01
+                        },
+                        "current_ratio": {
+                          "type": "number",
+                          "example": 675.18
+                        },
+                        "percentage_current_ratio": {
+                          "type": "number",
+                          "example": 0.05
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dashboard/monthly-cashflow": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Get Monthly Cashflow",
+        "description": "Retrieve data of monthly cashflow",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Year",
+            "schema": {
+              "type": "number",
+              "example": 2025
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Month",
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monthly cashflow retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "00"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "total_income": {
+                          "type": "number",
+                          "example": 112600
+                        },
+                        "income_growth": {
+                          "type": "number",
+                          "example": 11160
+                        },
+                        "total_expense": {
+                          "type": "number",
+                          "example": 2000
+                        },
+                        "expense_growth": {
+                          "type": "number",
+                          "example": -66.67
+                        },
+                        "total_balance": {
+                          "type": "number",
+                          "example": 15110600
+                        },
+                        "balance_growth": {
+                          "type": "number",
+                          "example": 5004.93
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2224,39 +2549,19 @@
             "items": {
               "$ref": "#/components/schemas/PurchaseInvoiceItem"
             }
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Attachment"
-            }
           }
         }
       },
       "CreatePurchaseInvoiceRequest": {
         "type": "object",
         "required": [
-          "document_date",
-          "vendor_code",
           "document_status",
+          "document_date",
           "process_status",
-          "bank_account_code",
+          "vendor_code",
           "items"
         ],
         "properties": {
-          "auto_create_payment": {
-            "description": "Set to `true` if you want to create payment automatically",
-            "type": "boolean",
-            "example": false
-          },
-          "bank_account_code": {
-            "type": "string",
-            "example": "001"
-          },
-          "tax_included_indicator": {
-            "type": "boolean",
-            "example": false
-          },
           "document_status": {
             "type": "string",
             "enum": [
@@ -2265,16 +2570,29 @@
               "M",
               "C"
             ],
-            "example": "D"
-          },
-          "vendor_code": {
-            "type": "string",
-            "example": "0124"
+            "example": "F"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
             "example": "2025-03-19T00:00:00Z"
+          },
+          "process_status": {
+            "type": "string",
+            "example": "UP"
+          },
+          "vendor_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "auto_create_payment": {
+            "description": "Set to `true` if you want to create payment automatically",
+            "type": "boolean",
+            "example": false
+          },
+          "tax_included_indicator": {
+            "type": "boolean",
+            "example": false
           },
           "due_date": {
             "type": "string",
@@ -2300,10 +2618,6 @@
           "other_amount": {
             "type": "number",
             "example": 100
-          },
-          "process_status": {
-            "type": "string",
-            "example": "UP"
           },
           "purchase_order_document_number": {
             "type": "string",
@@ -2408,9 +2722,13 @@
             "type": "string",
             "example": "001"
           },
+          "item_name": {
+            "type": "string",
+            "example": "Sample Item"
+          },
           "unit_of_measurement_code": {
             "type": "string",
-            "example": "Hour"
+            "example": "Pcs"
           },
           "quantity": {
             "type": "number",
@@ -2582,7 +2900,6 @@
         "required": [
           "customer_name",
           "document_date",
-          "bank_account_code",
           "items"
         ],
         "properties": {
@@ -2594,10 +2911,6 @@
             "type": "string",
             "format": "date-time",
             "example": "2025-10-11T00:00:00Z"
-          },
-          "bank_account_code": {
-            "type": "string",
-            "example": "001"
           },
           "discount_amount": {
             "type": "number",
@@ -2837,12 +3150,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SalesInvoiceItem"
-            }
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Attachment"
             }
           }
         }
@@ -3236,8 +3543,14 @@
       "signatureKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "ACC-Signature",
+        "name": "A-Signature",
         "description": "Generate the signature by creating an `SHA256-HMAC` hash of the payload, using the `client_secret` as the key. Then, `Base64-encode` the resulting hash and place the final value in the ACC-Signature header."
+      },
+      "dataKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "A-Data",
+        "description": "Include the `email` and `tenant_id` in the payload as Base64 encoded."
       }
     }
   }
