@@ -91,7 +91,7 @@
                     },
                     "expires_in": {
                       "type": "integer",
-                      "example": 3600
+                      "example": 172800
                     }
                   }
                 }
