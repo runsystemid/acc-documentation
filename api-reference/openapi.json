@@ -15,6 +15,16 @@
           "description": "The API base URL"
         }
       }
+    },
+    {
+      "url": "https://ifconfig.me",
+      "description": "Ifconfig.me",
+      "variables": {
+        "url": {
+          "default": "https://ifconfig.me",
+          "description": "The API temp URL"
+        }
+      }
     }
   ],
   "security": [
@@ -39,6 +49,15 @@
     }
   ],
   "paths": {
+    "/ip": {
+      "get": {
+        "tags": [
+          "IP"
+        ],
+        "summary": "Get IP",
+        "description": "Get the IP address of the client"
+      }
+    },
     "/oauth/clients/accesstoken": {
       "post": {
         "tags": [

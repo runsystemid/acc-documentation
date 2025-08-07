@@ -150,7 +150,8 @@
           {
             "group": "Sales Invoice",
             "pages": [
-              "api-reference/endpoint/sales-invoice-create"
+              "api-reference/endpoint/sales-invoice-create",
+              "api-reference/endpoint/ip"
             ]
           }
         ]
