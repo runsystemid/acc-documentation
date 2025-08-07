@@ -15,16 +15,6 @@
           "description": "The API base URL"
         }
       }
-    },
-    {
-      "url": "https://ifconfig.me",
-      "description": "Ifconfig.me",
-      "variables": {
-        "url": {
-          "default": "https://ifconfig.me",
-          "description": "The API temp URL"
-        }
-      }
     }
   ],
   "security": [
