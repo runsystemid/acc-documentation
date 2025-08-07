@@ -106,16 +106,31 @@
                   "type": "object",
                   "properties": {
                     "status": {
-                      "type": "string",
-                      "example": "ACC07"
+                      "type": "string"
                     },
                     "message": {
-                      "type": "string",
-                      "example": "Invalid client credentials"
+                      "type": "string"
                     },
                     "traceId": {
-                      "type": "string",
-                      "example": "123e4567-e89b-12d3-a456-426614174000"
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Unauthorized 1": {
+                    "summary": "Invalid client ID",
+                    "value": {
+                      "status": "ACC07",
+                      "message": "given client id is not found",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
+                    }
+                  },
+                  "Unauthorized 2": {
+                    "summary": "Invalid client credentials",
+                    "value": {
+                      "status": "ACC07",
+                      "message": "Invalid client credentials",
+                      "traceId": "123e4567-e89b-12d3-a456-426614174000"
                     }
                   }
                 }
