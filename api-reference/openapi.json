@@ -855,7 +855,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PurchaseInvoiceDetailResponse"
+                  "$ref": "#/components/schemas/CreatePurchaseInvoiceResponse"
                 }
               }
             }
@@ -1285,7 +1285,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SalesInvoiceDetailResponse"
+                  "$ref": "#/components/schemas/CreateSalesInvoiceResponse"
                 }
               }
             }
@@ -2579,86 +2579,119 @@
       "CreatePurchaseInvoiceRequest": {
         "type": "object",
         "required": [
-          "document_status",
+          "vendor_name",
           "document_date",
-          "process_status",
-          "vendor_code",
           "items"
         ],
         "properties": {
-          "document_status": {
+          "vendor_name": {
             "type": "string",
-            "enum": [
-              "D",
-              "F",
-              "M",
-              "C"
-            ],
-            "example": "F"
+            "example": "PT. ABC"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
             "example": "2025-03-19T00:00:00Z"
           },
-          "process_status": {
-            "type": "string",
-            "example": "UP"
-          },
-          "vendor_code": {
-            "type": "string",
-            "example": "0124"
-          },
           "auto_create_payment": {
             "description": "Set to `true` if you want to create payment automatically",
             "type": "boolean",
             "example": false
           },
-          "tax_included_indicator": {
-            "type": "boolean",
-            "example": false
-          },
-          "due_date": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2025-03-19T00:00:00Z"
-          },
-          "cancel_indicator": {
-            "type": "string",
-            "enum": [
-              "Y",
-              "N"
-            ],
-            "example": "N"
-          },
           "discount_amount": {
             "type": "number",
-            "example": 2000
+            "example": 0
           },
           "rounding_amount": {
             "type": "number",
-            "example": -10
+            "example": 0
           },
           "other_amount": {
             "type": "number",
-            "example": 100
-          },
-          "purchase_order_document_number": {
-            "type": "string",
-            "example": "00001/PO/03/25"
-          },
-          "currency_code": {
-            "type": "string",
-            "example": "IDR"
-          },
-          "vendor_invoice_number": {
-            "type": "string",
-            "example": ""
+            "example": 0
           },
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PurchaseInvoiceItemRequest"
+              "type": "object",
+              "properties": {
+                "item_code": {
+                  "type": "string"
+                },
+                "item_name": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "unit_of_measurement": {
+                  "type": "string"
+                },
+                "unit_price": {
+                  "type": "number"
+                },
+                "discount_amount": {
+                  "type": "number"
+                },
+                "tax_code": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "item_code": "001",
+                "item_name": "Sample Item 1",
+                "quantity": 1,
+                "unit_of_measurement": "pcs",
+                "unit_price": 2000,
+                "discount_amount": 0,
+                "tax_code": "003"
+              },
+              {
+                "item_code": "002",
+                "item_name": "Sample Item 2",
+                "quantity": 2,
+                "unit_of_measurement": "pcs",
+                "unit_price": 3000,
+                "discount_amount": 0,
+                "tax_code": "004"
+              }
+            ]
+          }
+        }
+      },
+      "CreatePurchaseInvoiceResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "info": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "00003/FPB/07/29"
+                ]
+              },
+              "total_data": {
+                "type": "number",
+                "example": 1
+              },
+              "total_processed": {
+                "type": "number",
+                "example": 1
+              }
             }
           }
         }
@@ -2750,21 +2783,21 @@
             "type": "string",
             "example": "Sample Item"
           },
-          "unit_of_measurement_code": {
-            "type": "string",
-            "example": "Pcs"
-          },
           "quantity": {
             "type": "number",
             "example": 1
           },
+          "unit_of_measurement_code": {
+            "type": "string",
+            "example": "pcs"
+          },
           "unit_price": {
             "type": "number",
-            "example": 15000000
+            "example": 3000
           },
           "discount_amount": {
             "type": "number",
-            "example": 1000000
+            "example": 0
           },
           "tax_code": {
             "type": "string",
@@ -2951,7 +2984,85 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SalesInvoiceItemRequest"
+              "type": "object",
+              "properties": {
+                "item_code": {
+                  "type": "string"
+                },
+                "item_name": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "unit_of_measurement_code": {
+                  "type": "string"
+                },
+                "unit_price": {
+                  "type": "number"
+                },
+                "discount_amount": {
+                  "type": "number"
+                },
+                "tax_code": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "item_code": "001",
+                "item_name": "Sample Item",
+                "quantity": 1,
+                "unit_of_measurement_code": "pcs",
+                "unit_price": 3000,
+                "discount_amount": 0,
+                "tax_code": "004"
+              },
+              {
+                "item_code": "002",
+                "item_name": "Sample Item 2",
+                "quantity": 2,
+                "unit_of_measurement_code": "pcs",
+                "unit_price": 3000,
+                "discount_amount": 0,
+                "tax_code": "004"
+              }
+            ]
+          }
+        }
+      },
+      "CreateSalesInvoiceResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "info": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "00001/FPJ/03/25"
+                ]
+              },
+              "total_data": {
+                "type": "number",
+                "example": 1
+              },
+              "total_processed": {
+                "type": "number",
+                "example": 1
+              }
             }
           }
         }
