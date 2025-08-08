@@ -2586,25 +2586,17 @@
         "properties": {
           "vendor_name": {
             "type": "string",
-            "example": "PT. ABC"
+            "example": "CV Agus System"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "20/08/2025"
+            "example": "30/07/2029"
           },
           "auto_create_payment": {
             "description": "Set to `true` if you want to create payment automatically",
             "type": "boolean",
-            "example": false
-          },
-          "rounding_amount": {
-            "type": "number",
-            "example": 0
-          },
-          "other_amount": {
-            "type": "number",
-            "example": 0
+            "example": true
           },
           "items": {
             "type": "array",
@@ -2636,22 +2628,22 @@
             },
             "example": [
               {
-                "item_code": "001",
-                "item_name": "Sample Item 1",
-                "quantity": 1,
+                "item_code": "0745114900005",
+                "item_name": "Product A",
+                "quantity": 2,
                 "unit_of_measurement": "pcs",
                 "unit_price": 2000,
                 "discount_amount": 0,
-                "tax_code": "004"
+                "tax_code": ""
               },
               {
-                "item_code": "002",
-                "item_name": "Sample Item 2",
-                "quantity": 2,
+                "item_code": "0745114900006",
+                "item_name": "Product B",
+                "quantity": 5,
                 "unit_of_measurement": "pcs",
-                "unit_price": 3000,
+                "unit_price": 1000,
                 "discount_amount": 0,
-                "tax_code": "004"
+                "tax_code": ""
               }
             ]
           }
@@ -2671,26 +2663,21 @@
           "data": {
             "type": "object",
             "properties": {
-              "document_number": {
-                "type": "string",
-                "example": "00013/FPB/07/29"
+              "aging_days": {
+                "type": "integer",
+                "example": 0
               },
-              "purchase_order_document_number": {
-                "type": "string",
-                "example": ""
+              "auto_create_payment": {
+                "type": "boolean",
+                "example": true
               },
-              "document_date": {
+              "bank_account_code": {
                 "type": "string",
-                "format": "date-time",
-                "example": "2029-07-30T00:00:00Z"
+                "example": "002"
               },
-              "vendor_code": {
+              "bank_account_name": {
                 "type": "string",
-                "example": "00002"
-              },
-              "vendor_name": {
-                "type": "string",
-                "example": "PT. ABC"
+                "example": "Bank"
               },
               "currency_code": {
                 "type": "string",
@@ -2700,100 +2687,100 @@
                 "type": "string",
                 "example": "Rupiah Indonesia"
               },
+              "description": {
+                "type": "string",
+                "example": "From API Integration id 1754626495"
+              },
+              "discount_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "document_date": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2029-07-30T00:00:00Z"
+              },
+              "document_number": {
+                "type": "string",
+                "example": "00006/FPB/07/29"
+              },
               "document_status": {
                 "type": "string",
                 "example": "Final"
-              },
-              "process_status": {
-                "type": "string",
-                "example": "Lunas"
               },
               "due_date": {
                 "type": "string",
                 "format": "date-time",
                 "nullable": true
               },
-              "description": {
-                "type": "string",
-                "example": "From API Integration id 1754626495"
-              },
-              "sub_total_amount": {
-                "type": "number",
-                "example": 13500
-              },
-              "total_tax_amount": {
-                "type": "number",
-                "example": 0
-              },
               "other_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "discount_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "rounding_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "total_amount": {
-                "type": "number",
-                "example": 13500
-              },
-              "total_payment": {
                 "type": "number",
                 "example": 0
               },
               "outstanding_amount": {
                 "type": "number",
+                "example": 9000
+              },
+              "purchase_order_document_number": {
+                "type": "string",
+                "example": ""
+              },
+              "process_status": {
+                "type": "string",
+                "example": "Lunas"
+              },
+              "rounding_amount": {
+                "type": "number",
                 "example": 0
+              },
+              "sub_total_amount": {
+                "type": "number",
+                "example": 9000
               },
               "tax_included_indicator": {
                 "type": "boolean",
                 "example": false
               },
-              "aging_days": {
-                "type": "integer",
-                "example": 0
+              "total_amount": {
+                "type": "number",
+                "example": 9000
               },
-              "vendor_invoice_number": {
-                "type": "string",
-                "example": ""
+              "total_payment": {
+                "type": "number",
+                "example": 9000
+              },
+              "total_tax_amount": {
+                "type": "number",
+                "example": 0
               },
               "vendor_address": {
                 "type": "string",
                 "example": "Indonesia"
               },
-              "auto_create_payment": {
-                "type": "boolean",
-                "example": true
-              },
-              "bank_account_code": {
+              "vendor_code": {
                 "type": "string",
-                "example": "001"
+                "example": "00006"
               },
-              "bank_account_name": {
-                "type": "string",
-                "example": "Kas"
-              },
-              "created_by": {
+              "vendor_invoice_number": {
                 "type": "string",
                 "example": ""
               },
-              "cancel_reason": {
+              "vendor_name": {
                 "type": "string",
-                "example": "-"
+                "example": "CV Agus System"
               },
               "items": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "document_number": {
+                    "detail_number": {
                       "type": "string"
                     },
-                    "detail_number": {
+                    "discount_amount": {
+                      "type": "number"
+                    },
+                    "document_number": {
                       "type": "string"
                     },
                     "item_code": {
@@ -2802,19 +2789,7 @@
                     "item_name": {
                       "type": "string"
                     },
-                    "uom_code": {
-                      "type": "string"
-                    },
-                    "uom_name": {
-                      "type": "string"
-                    },
                     "quantity": {
-                      "type": "number"
-                    },
-                    "unit_price": {
-                      "type": "number"
-                    },
-                    "discount_amount": {
                       "type": "number"
                     },
                     "sub_total_amount": {
@@ -2829,48 +2804,57 @@
                     "tax_rate": {
                       "type": "number"
                     },
+                    "total_amount": {
+                      "type": "number"
+                    },
                     "total_tax_amount": {
                       "type": "number"
                     },
-                    "total_amount": {
+                    "unit_of_measurement_code": {
+                      "type": "string"
+                    },
+                    "unit_of_measurement_name": {
+                      "type": "string"
+                    },
+                    "unit_price": {
                       "type": "number"
                     }
                   }
                 },
                 "example": [
                   {
-                    "document_number": "00001/FPB/03/25",
                     "detail_number": "00001",
-                    "item_code": "001",
-                    "item_name": "Sample Item 1",
-                    "uom_code": "001",
-                    "uom_name": "pcs",
-                    "quantity": 1,
-                    "unit_price": 2000,
                     "discount_amount": 0,
-                    "sub_total_amount": 2000,
-                    "tax_code": "004",
-                    "tax_name": "PPh 21 rate 6",
-                    "tax_rate": -6,
-                    "total_tax_amount": -120,
-                    "total_amount": 1880
+                    "document_number": "00006/FPB/07/29",
+                    "item_code": "0745114900005",
+                    "item_name": "Product A",
+                    "quantity": 2,
+                    "sub_total_amount": 4000,
+                    "tax_code": "",
+                    "tax_name": "",
+                    "tax_rate": 0,
+                    "total_amount": 4000,
+                    "total_tax_amount": 0,
+                    "unit_of_measurement_code": "PCS01",
+                    "unit_of_measurement_name": "pcs",
+                    "unit_price": 2000
                   },
                   {
-                    "document_number": "00002/FPB/03/25",
                     "detail_number": "00002",
-                    "item_code": "002",
-                    "item_name": "Sample Item 2",
-                    "uom_code": "001",
-                    "uom_name": "pcs",
-                    "quantity": 1,
-                    "unit_price": 3000,
                     "discount_amount": 0,
-                    "sub_total_amount": 3000,
-                    "tax_code": "004",
-                    "tax_name": "PPh 21 rate 6",
-                    "tax_rate": -6,
-                    "total_tax_amount": -180,
-                    "total_amount": 2820
+                    "document_number": "00006/FPB/07/29",
+                    "item_code": "0745114900006",
+                    "item_name": "Product B",
+                    "quantity": 5,
+                    "sub_total_amount": 5000,
+                    "tax_code": "",
+                    "tax_name": "",
+                    "tax_rate": 0,
+                    "total_amount": 5000,
+                    "total_tax_amount": 0,
+                    "unit_of_measurement_code": "PCS01",
+                    "unit_of_measurement_name": "pcs",
+                    "unit_price": 1000
                   }
                 ]
               }
@@ -3224,26 +3208,21 @@
           "data": {
             "type": "object",
             "properties": {
-              "document_number": {
-                "type": "string",
-                "example": "00013/FPB/07/29"
+              "auto_create_payment": {
+                "type": "boolean",
+                "example": true
               },
-              "purchase_order_document_number": {
+              "bank_account_code": {
                 "type": "string",
-                "example": ""
+                "example": "002"
               },
-              "document_date": {
+              "bank_account_name": {
                 "type": "string",
-                "format": "date-time",
-                "example": "2029-07-30T00:00:00Z"
+                "example": "Bank"
               },
-              "customer_code": {
+              "cancel_reason": {
                 "type": "string",
-                "example": "0124"
-              },
-              "customer_name": {
-                "type": "string",
-                "example": "PT. ABC"
+                "example": "-"
               },
               "currency_code": {
                 "type": "string",
@@ -3253,48 +3232,45 @@
                 "type": "string",
                 "example": "Rupiah Indonesia"
               },
+              "customer_address": {
+                "type": "string",
+                "example": "Jl. Raya No. 123"
+              },
+              "customer_code": {
+                "type": "string",
+                "example": "0124"
+              },
+              "customer_name": {
+                "type": "string",
+                "example": "PT. ABC"
+              },
+              "description": {
+                "type": "string",
+                "example": "From API Integration id 1754626495"
+              },
+              "discount_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "document_date": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2029-07-30T00:00:00Z"
+              },
+              "document_number": {
+                "type": "string",
+                "example": "00004/FPJ/07/29"
+              },
               "document_status": {
                 "type": "string",
                 "example": "Final"
-              },
-              "process_status": {
-                "type": "string",
-                "example": "Lunas"
               },
               "due_date": {
                 "type": "string",
                 "format": "date-time",
                 "nullable": true
               },
-              "description": {
-                "type": "string",
-                "example": "From API Integration id 1754626495"
-              },
-              "sub_total_amount": {
-                "type": "number",
-                "example": 13500
-              },
-              "total_tax_amount": {
-                "type": "number",
-                "example": 0
-              },
               "other_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "discount_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "rounding_amount": {
-                "type": "number",
-                "example": 0
-              },
-              "total_amount": {
-                "type": "number",
-                "example": 13500
-              },
-              "total_payment": {
                 "type": "number",
                 "example": 0
               },
@@ -3302,51 +3278,54 @@
                 "type": "number",
                 "example": 0
               },
+              "process_status": {
+                "type": "string",
+                "example": "Dibayarkan Sepenuhnya"
+              },
+              "rounding_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "sales_order_document_number": {
+                "type": "string",
+                "example": ""
+              },
+              "sales_person_code": {
+                "type": "string",
+                "example": ""
+              },
+              "sales_person_name": {
+                "type": "string",
+                "example": ""
+              },
+              "sub_total_amount": {
+                "type": "number",
+                "example": 13500
+              },
               "tax_included_indicator": {
                 "type": "boolean",
                 "example": false
               },
-              "aging_days": {
-                "type": "integer",
+              "total_amount": {
+                "type": "number",
+                "example": 13500
+              },
+              "total_tax_amount": {
+                "type": "number",
                 "example": 0
-              },
-              "vendor_invoice_number": {
-                "type": "string",
-                "example": ""
-              },
-              "vendor_address": {
-                "type": "string",
-                "example": "Indonesia"
-              },
-              "auto_create_payment": {
-                "type": "boolean",
-                "example": true
-              },
-              "bank_account_code": {
-                "type": "string",
-                "example": "001"
-              },
-              "bank_account_name": {
-                "type": "string",
-                "example": "Kas"
-              },
-              "created_by": {
-                "type": "string",
-                "example": ""
-              },
-              "cancel_reason": {
-                "type": "string",
-                "example": "-"
               },
               "items": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "document_number": {
+                    "detail_number": {
                       "type": "string"
                     },
-                    "detail_number": {
+                    "discount_amount": {
+                      "type": "number"
+                    },
+                    "document_number": {
                       "type": "string"
                     },
                     "item_code": {
@@ -3355,19 +3334,7 @@
                     "item_name": {
                       "type": "string"
                     },
-                    "uom_code": {
-                      "type": "string"
-                    },
-                    "uom_name": {
-                      "type": "string"
-                    },
                     "quantity": {
-                      "type": "number"
-                    },
-                    "unit_price": {
-                      "type": "number"
-                    },
-                    "discount_amount": {
                       "type": "number"
                     },
                     "sub_total_amount": {
@@ -3382,48 +3349,57 @@
                     "tax_rate": {
                       "type": "number"
                     },
+                    "total_amount": {
+                      "type": "number"
+                    },
                     "total_tax_amount": {
                       "type": "number"
                     },
-                    "total_amount": {
+                    "unit_of_measurement_code": {
+                      "type": "string"
+                    },
+                    "unit_of_measurement_name": {
+                      "type": "string"
+                    },
+                    "unit_price": {
                       "type": "number"
                     }
                   }
                 },
                 "example": [
                   {
-                    "document_number": "00001/FJB/03/25",
                     "detail_number": "00001",
-                    "item_code": "001",
-                    "item_name": "Sample Item 1",
-                    "uom_code": "001",
-                    "uom_name": "pcs",
-                    "quantity": 1,
-                    "unit_price": 4000,
                     "discount_amount": 0,
-                    "sub_total_amount": 4000,
-                    "tax_code": "004",
-                    "tax_name": "PPh 21 rate 6",
-                    "tax_rate": -6,
-                    "total_tax_amount": -240,
-                    "total_amount": 3760
+                    "document_number": "00004/FPJ/07/29",
+                    "item_code": "ITM00001",
+                    "item_name": "Product A",
+                    "quantity": 2,
+                    "sub_total_amount": 6000,
+                    "tax_code": "",
+                    "tax_name": "",
+                    "tax_rate": 0,
+                    "total_amount": 6000,
+                    "total_tax_amount": 0,
+                    "unit_of_measurement_code": "PCS01",
+                    "unit_of_measurement_name": "pcs",
+                    "unit_price": 3000
                   },
                   {
-                    "document_number": "00002/FJB/03/25",
                     "detail_number": "00002",
-                    "item_code": "002",
-                    "item_name": "Sample Item 2",
-                    "uom_code": "001",
-                    "uom_name": "pcs",
-                    "quantity": 1,
-                    "unit_price": 3000,
                     "discount_amount": 0,
-                    "sub_total_amount": 3000,
-                    "tax_code": "004",
-                    "tax_name": "PPh 21 rate 6",
-                    "tax_rate": -6,
-                    "total_tax_amount": -180,
-                    "total_amount": 2820
+                    "document_number": "00004/FPJ/07/29",
+                    "item_code": "0745114900006",
+                    "item_name": "Product B",
+                    "quantity": 5,
+                    "sub_total_amount": 5000,
+                    "tax_code": "",
+                    "tax_name": "",
+                    "tax_rate": 0,
+                    "total_amount": 5000,
+                    "total_tax_amount": 0,
+                    "unit_of_measurement_code": "PCS01",
+                    "unit_of_measurement_name": "pcs",
+                    "unit_price": 1000
                   }
                 ]
               }
