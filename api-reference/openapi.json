@@ -3128,20 +3128,16 @@
         "properties": {
           "customer_name": {
             "type": "string",
-            "example": "PT. ABC"
+            "example": "Mira Ramadhani"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
             "example": "20/08/2025"
           },
-          "rounding_amount": {
-            "type": "number",
-            "example": 0
-          },
-          "other_amount": {
-            "type": "number",
-            "example": 0
+          "auto_create_payment": {
+            "type": "boolean",
+            "example": true
           },
           "items": {
             "type": "array",
@@ -3173,22 +3169,22 @@
             },
             "example": [
               {
-                "item_code": "001",
-                "item_name": "Sample Item 1",
-                "quantity": 1,
-                "unit_of_measurement_code": "pcs",
-                "unit_price": 4000,
-                "discount_amount": 0,
-                "tax_code": "004"
-              },
-              {
-                "item_code": "002",
-                "item_name": "Sample Item 2",
+                "item_code": "ITM00001",
+                "item_name": "Product A",
                 "quantity": 2,
                 "unit_of_measurement_code": "pcs",
                 "unit_price": 3000,
                 "discount_amount": 0,
-                "tax_code": "004"
+                "tax_code": ""
+              },
+              {
+                "item_code": "ITM00002",
+                "item_name": "Product B",
+                "quantity": 5,
+                "unit_of_measurement_code": "pcs",
+                "unit_price": 1500,
+                "discount_amount": 0,
+                "tax_code": ""
               }
             ]
           }
@@ -3238,11 +3234,11 @@
               },
               "customer_code": {
                 "type": "string",
-                "example": "0124"
+                "example": "00005"
               },
               "customer_name": {
                 "type": "string",
-                "example": "PT. ABC"
+                "example": "Mira Ramadhani"
               },
               "description": {
                 "type": "string",
