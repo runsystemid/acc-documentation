@@ -3190,10 +3190,10 @@
             "example": [
               {
                 "item_code": "001",
-                "item_name": "Sample Item",
+                "item_name": "Sample Item 1",
                 "quantity": 1,
                 "unit_of_measurement_code": "pcs",
-                "unit_price": 3000,
+                "unit_price": 4000,
                 "discount_amount": 0,
                 "tax_code": "004"
               },
@@ -3344,67 +3344,88 @@
                   "type": "object",
                   "properties": {
                     "document_number": {
-                      "type": "string",
-                      "example": "00013/FPB/07/29"
+                      "type": "string"
                     },
                     "detail_number": {
-                      "type": "string",
-                      "example": "00001"
+                      "type": "string"
                     },
                     "item_code": {
-                      "type": "string",
-                      "example": "0745114900005"
+                      "type": "string"
                     },
                     "item_name": {
-                      "type": "string",
-                      "example": "Product A"
+                      "type": "string"
                     },
                     "uom_code": {
-                      "type": "string",
-                      "example": "PCS01"
+                      "type": "string"
                     },
                     "uom_name": {
-                      "type": "string",
-                      "example": "pcs"
+                      "type": "string"
                     },
                     "quantity": {
-                      "type": "number",
-                      "example": 2
+                      "type": "number"
                     },
                     "unit_price": {
-                      "type": "number",
-                      "example": 3000
+                      "type": "number"
                     },
                     "discount_amount": {
-                      "type": "number",
-                      "example": 0
+                      "type": "number"
                     },
                     "sub_total_amount": {
-                      "type": "number",
-                      "example": 6000
+                      "type": "number"
                     },
                     "tax_code": {
-                      "type": "string",
-                      "example": ""
+                      "type": "string"
                     },
                     "tax_name": {
-                      "type": "string",
-                      "example": ""
+                      "type": "string"
                     },
                     "tax_rate": {
-                      "type": "number",
-                      "example": 0
+                      "type": "number"
                     },
                     "total_tax_amount": {
-                      "type": "number",
-                      "example": 0
+                      "type": "number"
                     },
                     "total_amount": {
-                      "type": "number",
-                      "example": 6000
+                      "type": "number"
                     }
                   }
-                }
+                },
+                "example": [
+                  {
+                    "document_number": "00001/FJB/03/25",
+                    "detail_number": "00001",
+                    "item_code": "001",
+                    "item_name": "Sample Item 1",
+                    "uom_code": "001",
+                    "uom_name": "pcs",
+                    "quantity": 1,
+                    "unit_price": 4000,
+                    "discount_amount": 0,
+                    "sub_total_amount": 4000,
+                    "tax_code": "004",
+                    "tax_name": "PPh 21 rate 6",
+                    "tax_rate": -6,
+                    "total_tax_amount": -240,
+                    "total_amount": 3760
+                  },
+                  {
+                    "document_number": "00002/FJB/03/25",
+                    "detail_number": "00002",
+                    "item_code": "002",
+                    "item_name": "Sample Item 2",
+                    "uom_code": "001",
+                    "uom_name": "pcs",
+                    "quantity": 1,
+                    "unit_price": 3000,
+                    "discount_amount": 0,
+                    "sub_total_amount": 3000,
+                    "tax_code": "004",
+                    "tax_name": "PPh 21 rate 6",
+                    "tax_rate": -6,
+                    "total_tax_amount": -180,
+                    "total_amount": 2820
+                  }
+                ]
               }
             }
           }
