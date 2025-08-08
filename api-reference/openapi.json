@@ -1988,7 +1988,7 @@
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-10-11T00:00:00Z"
+            "example": "20/08/2025"
           },
           "document_status": {
             "type": "string",
@@ -2241,7 +2241,7 @@
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-12-19T00:00:00Z"
+            "example": "20/08/2025"
           },
           "description": {
             "type": "string",
@@ -2591,7 +2591,7 @@
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-03-19T00:00:00Z"
+            "example": "20/08/2025"
           },
           "auto_create_payment": {
             "description": "Set to `true` if you want to create payment automatically",
@@ -2729,12 +2729,12 @@
           "due_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-03-19T00:00:00Z"
+            "example": "20/08/2025"
           },
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-03-19T00:00:00Z"
+            "example": "20/08/2025"
           },
           "discount_amount": {
             "type": "number",
@@ -2967,7 +2967,7 @@
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-10-11T00:00:00Z"
+            "example": "20/08/2025"
           },
           "discount_amount": {
             "type": "number",
@@ -3041,27 +3041,200 @@
           },
           "message": {
             "type": "string",
-            "example": "Success"
+            "example": "success"
           },
           "data": {
             "type": "object",
             "properties": {
-              "info": {
+              "document_number": {
+                "type": "string",
+                "example": "00013/FPB/07/29"
+              },
+              "purchase_order_document_number": {
+                "type": "string",
+                "example": ""
+              },
+              "document_date": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2029-07-30T00:00:00Z"
+              },
+              "vendor_code": {
+                "type": "string",
+                "example": "00002"
+              },
+              "vendor_name": {
+                "type": "string",
+                "example": "JOnas"
+              },
+              "currency_code": {
+                "type": "string",
+                "example": "IDR"
+              },
+              "currency_name": {
+                "type": "string",
+                "example": "Rupiah Indonesia"
+              },
+              "document_status": {
+                "type": "string",
+                "example": "Final"
+              },
+              "process_status": {
+                "type": "string",
+                "example": "Lunas"
+              },
+              "due_date": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "description": {
+                "type": "string",
+                "example": "From API Integration id 1754626495"
+              },
+              "sub_total_amount": {
+                "type": "number",
+                "example": 13500
+              },
+              "total_tax_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "other_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "discount_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "rounding_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "total_amount": {
+                "type": "number",
+                "example": 13500
+              },
+              "total_payment": {
+                "type": "number",
+                "example": 0
+              },
+              "outstanding_amount": {
+                "type": "number",
+                "example": 0
+              },
+              "tax_included_indicator": {
+                "type": "boolean",
+                "example": false
+              },
+              "aging_days": {
+                "type": "integer",
+                "example": 0
+              },
+              "vendor_invoice_number": {
+                "type": "string",
+                "example": ""
+              },
+              "vendor_address": {
+                "type": "string",
+                "example": "Indonesia"
+              },
+              "auto_create_payment": {
+                "type": "boolean",
+                "example": true
+              },
+              "bank_account_code": {
+                "type": "string",
+                "example": "001"
+              },
+              "bank_account_name": {
+                "type": "string",
+                "example": "Kas"
+              },
+              "created_by": {
+                "type": "string",
+                "example": ""
+              },
+              "cancel_reason": {
+                "type": "string",
+                "example": "-"
+              },
+              "items": {
                 "type": "array",
                 "items": {
-                  "type": "string"
-                },
-                "example": [
-                  "00001/FPJ/03/25"
-                ]
+                  "type": "object",
+                  "properties": {
+                    "document_number": {
+                      "type": "string",
+                      "example": "00013/FPB/07/29"
+                    },
+                    "detail_number": {
+                      "type": "string",
+                      "example": "00001"
+                    },
+                    "item_code": {
+                      "type": "string",
+                      "example": "0745114900005"
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "example": "Product A"
+                    },
+                    "uom_code": {
+                      "type": "string",
+                      "example": "PCS01"
+                    },
+                    "uom_name": {
+                      "type": "string",
+                      "example": "pcs"
+                    },
+                    "quantity": {
+                      "type": "number",
+                      "example": 2
+                    },
+                    "unit_price": {
+                      "type": "number",
+                      "example": 3000
+                    },
+                    "discount_amount": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "sub_total_amount": {
+                      "type": "number",
+                      "example": 6000
+                    },
+                    "tax_code": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "tax_name": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "total_tax_amount": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "example": 6000
+                    }
+                  }
+                }
               },
-              "total_data": {
-                "type": "number",
-                "example": 1
-              },
-              "total_processed": {
-                "type": "number",
-                "example": 1
+              "attachments": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
               }
             }
           }
@@ -3073,7 +3246,7 @@
           "document_date": {
             "type": "string",
             "format": "date-time",
-            "example": "2025-10-11T00:00:00Z"
+            "example": "20/08/2025"
           },
           "sales_order_document_number": {
             "type": "string",
