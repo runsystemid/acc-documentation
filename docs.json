@@ -154,6 +154,30 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Status Code",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "status-codes/index"
+            ]
+          },
+          {
+            "group": "Document Status",
+            "pages": [
+              "status-codes/invoice-document"
+            ]
+          },
+          {
+            "group": "Process Status",
+            "pages": [
+              "status-codes/purchase-process",
+              "status-codes/sales-process"
+            ]
+          }
+        ]
       }
     ],
     "global": {

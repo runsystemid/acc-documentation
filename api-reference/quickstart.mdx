@@ -2,8 +2,6 @@
 title: "Quickstart"
 ---
 
-# API Overview
-
 The Accounting\+ API is organized around REST principles with predictable resource-oriented URLs. All API responses return JSON and use standard HTTP response codes, authentication, and verbs.
 
 **Base URL:** `https://staging-openapi.accountingplus.id`
@@ -148,44 +146,16 @@ All API responses follow a consistent format:
 }
 ```
 
-### Document Status Codes
+### Status Codes Reference
 
-- Voucher
-  | Code | Description                           |
-  | ---- | ------------------------------------- |
-  | `D`  | Draft - Document is in draft state    |
-  | `F`  | Final - Document has been finalized   |
-  | `C`  | Canceled - Document has been canceled |
+For comprehensive information about all status codes used in the ACC Plus API, see the dedicated [Status Codes Reference](/status-codes/index) section.
 
-- Purchase Invoice & Sales Invoice
-  | Code | Description                                         |
-  | ---- | --------------------------------------------------- |
-  | `D`  | Draft - Document is in draft state                  |
-  | `F`  | Final - Document has been finalized                 |
-  | `M`  | Manual Fullfilment - Document is manually fulfilled |
-  | `C`  | Canceled - Document has been canceled               |
+This includes detailed documentation for:
 
-### Process Status Codes
+- **Document Status Codes** - Track document workflow states
+- **Process Status Codes** - Monitor payment and fulfillment progress
 
-- Voucher
-  | Code | Description                   |
-  | ---- | ----------------------------- |
-  | `T`  | Transfer Dana - Fund transfer |
-  | `S`  | Kirim Dana - Send funds       |
-  | `R`  | Terima Dana - Receive funds   |
-
-- Purchase invoice & Sales Order
-  | Code | Description                               |
-  | ---- | ----------------------------------------- |
-  | `UP` | Unpaid - Has not been paid at all         |
-  | `PP` | Partially Paid - Has been partially paid  |
-  | `FP` | Fully Paid - Has been fully paid          |
-
-- Sales Invoice
-  | Code | Description                                                           |
-  | ---- | --------------------------------------------------------------------- |
-  | `OP` | Open - Invoice has been issued but not yet processed for payment      |
-  | `PI` | Partially Invoiced - Some items/services have been invoiced           |
-  | `FI` | Fully Invoiced - All items/services have been invoiced                |
-  | `PP` | Partially Paid - Invoice has been partially paid                      |
-  | `FP` | Fully Paid - Invoice has been fully paid                              |
+Each status code type has its own dedicated page with:
+- Detailed explanations and examples
+- Common scenarios
+- Related API endpoints
