@@ -68,10 +68,12 @@
                 ],
                 "properties": {
                   "client_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "thepartner"
                   },
                   "client_secret": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "abcdefghijklmnopqrstuvwxyz"
                   }
                 }
               }
@@ -86,21 +88,34 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "organization_name": {
+                    "status": {
                       "type": "string",
-                      "example": "PT. Test"
+                      "example": "00"
                     },
-                    "client_id": {
+                    "message": {
                       "type": "string",
-                      "example": "thepartner"
+                      "example": "Success"
                     },
-                    "access_token": {
-                      "type": "string",
-                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-                    },
-                    "expires_in": {
-                      "type": "integer",
-                      "example": 172800
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "organization_name": {
+                          "type": "string",
+                          "example": "PT. Test"
+                        },
+                        "client_id": {
+                          "type": "string",
+                          "example": "thepartner"
+                        },
+                        "access_token": {
+                          "type": "string",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        },
+                        "expires_in": {
+                          "type": "integer",
+                          "example": 172800
+                        }
+                      }
                     }
                   }
                 }
