@@ -3168,7 +3168,7 @@
                 "quantity": {
                   "type": "number"
                 },
-                "unit_of_measurement_code": {
+                "unit_of_measurement": {
                   "type": "string"
                 },
                 "unit_price": {
@@ -3187,7 +3187,7 @@
                 "item_code": "ITM00001",
                 "item_name": "Product A",
                 "quantity": 2,
-                "unit_of_measurement_code": "pcs",
+                "unit_of_measurement": "pcs",
                 "unit_price": 3000,
                 "discount_amount": 0,
                 "tax_code": ""
@@ -3196,7 +3196,7 @@
                 "item_code": "ITM00002",
                 "item_name": "Product B",
                 "quantity": 5,
-                "unit_of_measurement_code": "pcs",
+                "unit_of_measurement": "pcs",
                 "unit_price": 1500,
                 "discount_amount": 0,
                 "tax_code": ""
