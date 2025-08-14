@@ -108,6 +108,18 @@
                 ]
               },
               {
+                "group": "Koperasi",
+                "pages": [
+                  "documentation/koperasi/anggota",
+                  "documentation/koperasi/opening-balance",
+                  "documentation/koperasi/arus-kas",
+                  "documentation/koperasi/cash-statement",
+                  "documentation/koperasi/hasil-usaha",
+                  "documentation/koperasi/posisi-keuangan",
+                  "documentation/koperasi/perubahan-ekuitas"
+                ]
+              },
+              {
                 "group": "Data Umum",
                 "pages": [
                   "documentation/master-data/bagan-akun",
@@ -130,27 +142,47 @@
             "group": "API Reference",
             "pages": [
               "api-reference/get-started",
-              "api-reference/quickstart",
-              "api-reference/endpoint/get-token"
+              "api-reference/quickstart"
             ]
           },
           {
-            "group": "Insight",
+            "group": "Faktur Pembelian",
             "pages": [
-              "api-reference/endpoint/dashboard-accountings",
-              "api-reference/endpoint/dashboard-monthly-cashflow"
+              "api-reference/endpoint/purchase-invoice-list",
+              "api-reference/endpoint/purchase-invoice-get",
+              "api-reference/endpoint/purchase-invoice-create",
+              "api-reference/endpoint/purchase-invoice-update"
             ]
           },
           {
-            "group": "Purchase Invoice",
+            "group": "Faktur Penjualan",
             "pages": [
-              "api-reference/endpoint/purchase-invoice-create"
+              "api-reference/endpoint/sales-invoice-list",
+              "api-reference/endpoint/sales-invoice-get",
+              "api-reference/endpoint/sales-invoice-create",
+              "api-reference/endpoint/sales-invoice-update",
+              "api-reference/endpoint/sales-invoice-customers",
+              "api-reference/endpoint/sales-order-list",
+              "api-reference/endpoint/sales-order-get"
             ]
           },
           {
-            "group": "Sales Invoice",
+            "group": "Arus Kas Bank",
             "pages": [
-              "api-reference/endpoint/sales-invoice-create"
+              "api-reference/endpoint/voucher-list",
+              "api-reference/endpoint/voucher-get",
+              "api-reference/endpoint/voucher-create",
+              "api-reference/endpoint/voucher-update",
+              "api-reference/endpoint/voucher-category-list"
+            ]
+          },
+          {
+            "group": "Jurnal",
+            "pages": [
+              "api-reference/endpoint/journal-list",
+              "api-reference/endpoint/journal-get",
+              "api-reference/endpoint/journal-create",
+              "api-reference/endpoint/journal-update"
             ]
           }
         ]
