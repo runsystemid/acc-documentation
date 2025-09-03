@@ -2613,6 +2613,10 @@
             "type": "boolean",
             "example": true
           },
+          "other_amount": {
+            "type": "number",
+            "example": 0
+          },
           "items": {
             "type": "array",
             "items": {
@@ -3153,6 +3157,10 @@
           "auto_create_payment": {
             "type": "boolean",
             "example": true
+          },
+          "other_amount": {
+            "type": "number",
+            "example": 0
           },
           "items": {
             "type": "array",
