@@ -114,7 +114,9 @@
                   "documentation/koperasi/cash-statement",
                   "documentation/koperasi/hasil-usaha",
                   "documentation/koperasi/posisi-keuangan",
-                  "documentation/koperasi/perubahan-ekuitas"
+                  "documentation/koperasi/perubahan-ekuitas",
+                  "documentation/koperasi/in-simpanan-pokok",
+                  "documentation/koperasi/in-simpanan-wajib"
                 ]
               },
               {
