@@ -131,6 +131,17 @@
                   "documentation/master-data/unit",
                   "documentation/master-data/bank-account"
                 ]
+              },
+              {
+                "group": "Pengaturan",
+                "pages": [
+                  {
+                    "group": "Konfigurasi",
+                    "pages": [
+                      "documentation/settings/konfigurasi/member"
+                    ]
+                  }
+                ]
               }
             ]
           }
