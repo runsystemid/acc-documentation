@@ -1933,7 +1933,7 @@
             "properties": {
               "total": {
                 "type": "integer",
-                "example": 29
+                "example": 2
               },
               "limit": {
                 "type": "integer",
