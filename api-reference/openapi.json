@@ -296,7 +296,7 @@
         "summary": "Create Voucher",
         "description": "Create a new bank cash flow voucher",
         "requestBody": {
-          "description": "Voucher details",
+          "description": "Voucher detail",
           "required": true,
           "content": {
             "application/json": {
@@ -1780,6 +1780,22 @@
           }
         }
       },
+      "CreateVoucherResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/VoucherDetail"
+          }
+        }
+      },
       "VoucherResponse": {
         "type": "object",
         "properties": {
@@ -1884,60 +1900,80 @@
           "document_status": {
             "type": "string",
             "enum": [
-              "Draft",
-              "Final",
-              "Canceled"
+              "D",
+              "F",
+              "C"
             ],
-            "example": "Draft"
+            "example": "F"
           },
           "document_type": {
             "type": "string",
             "enum": [
-              "Transfer Dana",
-              "Kirim Dana",
-              "Terima Dana"
+              "T",
+              "S",
+              "R"
             ],
-            "example": "Transfer Dana"
-          },
-          "bank_account_code_from": {
-            "type": "string",
-            "example": "0001"
+            "example": "R"
           },
           "bank_account_code_to": {
             "type": "string",
-            "example": "0002"
-          },
-          "bank_account_name_from": {
-            "type": "string",
-            "example": "bank test from"
+            "example": "1234567890"
           },
           "bank_account_name_to": {
             "type": "string",
-            "example": "bank test to"
+            "example": "Rekening Sukses Sejahtera"
           },
           "total_amount": {
             "type": "number",
-            "example": 5000
+            "example": 20000
           },
           "remark": {
             "type": "string",
-            "example": "TEST"
+            "example": "Pencatatan Penerimaan Hutang Usaha"
           },
           "total_debit": {
             "type": "number",
-            "example": 6000
+            "example": 20000
           },
           "total_credit": {
             "type": "number",
-            "example": 0
+            "example": 20000
           },
           "menu_code": {
             "type": "string",
-            "example": "BPB"
+            "example": "AKB"
           },
           "menu_desc": {
             "type": "string",
-            "example": "Pembayaran Pembelian"
+            "example": "Arus Kas Bank"
+          },
+          "category_code": {
+            "type": "string",
+            "example": "07"
+          },
+          "category_name": {
+            "type": "string",
+            "example": "Penerimaan Utang Pinjaman"
+          },
+          "member_code": {
+            "type": "string",
+            "example": "0124"
+          },
+          "member_name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "profit_center_id": {
+            "type": "string",
+            "example": "1234567890"
+          },
+          "profit_center_name": {
+            "type": "string",
+            "example": "Kantor Pusat"
+          },
+          "cancel_reason": {
+            "type": "string",
+            "example": ""
           }
         }
       },
@@ -1992,12 +2028,10 @@
         "type": "object",
         "required": [
           "document_date",
-          "document_status",
-          "document_type",
-          "bank_account_code_from",
-          "bank_account_code_to",
-          "total_amount",
-          "items"
+          "bank_code",
+          "bank_account_number",
+          "bank_account_name",
+          "total_amount"
         ],
         "properties": {
           "document_date": {
@@ -2005,49 +2039,21 @@
             "format": "date-time",
             "example": "20/08/2025"
           },
-          "document_status": {
+          "bank_code": {
             "type": "string",
-            "enum": [
-              "D",
-              "F",
-              "C"
-            ],
-            "example": "D"
+            "example": "BCA"
           },
-          "document_type": {
+          "bank_account_number": {
             "type": "string",
-            "enum": [
-              "T",
-              "S",
-              "R"
-            ],
-            "example": "R"
+            "example": "1234567890"
           },
-          "bank_account_code_from": {
+          "bank_account_name": {
             "type": "string",
-            "example": "001"
-          },
-          "bank_account_code_to": {
-            "type": "string",
-            "example": "3454656"
-          },
-          "remark": {
-            "type": "string",
-            "example": "la ta ta ta"
+            "example": "Rekening Sukses Sejahtera"
           },
           "total_amount": {
             "type": "number",
-            "example": 12000
-          },
-          "is_use_category": {
-            "type": "boolean",
-            "example": false
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/VoucherItemRequest"
-            }
+            "example": 20000
           }
         }
       },

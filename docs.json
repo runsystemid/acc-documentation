@@ -176,6 +176,12 @@
             "pages": [
               "api-reference/endpoint/sales-invoice-create"
             ]
+          },
+          {
+            "group": "Arus Kas & Bank",
+            "pages": [
+              "api-reference/endpoint/voucher-create"
+            ]
           }
         ]
       }
