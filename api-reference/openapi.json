@@ -312,7 +312,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VoucherResponse"
+                  "$ref": "#/components/schemas/CreateVoucherResponse"
                 }
               }
             }
@@ -360,6 +360,27 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CategoriesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/vouchers/category-cash": {
+      "get": {
+        "tags": [
+          "Vouchers"
+        ],
+        "summary": "List Cash Categories",
+        "description": "Retrieve list of voucher cash categories",
+        "responses": {
+          "200": {
+            "description": "Cash categories retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCategoryCashResponse"
                 }
               }
             }
@@ -1847,6 +1868,93 @@
           }
         }
       },
+      "ListCategoryCashResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "desc": {
+                  "type": "string"
+                },
+                "account_number": {
+                  "type": "string"
+                },
+                "category_code": {
+                  "type": "string"
+                },
+                "category_name": {
+                  "type": "string"
+                },
+                "cash_type_name": {
+                  "type": "string"
+                },
+                "is_member_required": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "example": [
+              {
+                "code": "UK01",
+                "desc": "Pembayaran simpanan/Iuran Pokok Anggota",
+                "account_number": "1.01.01.01",
+                "category_code": "S",
+                "category_name": "Uang Keluar",
+                "cash_type_name": "invalid cash type",
+                "is_member_required": false
+              },
+              {
+                "code": "UK02",
+                "desc": "Pembayaran Gaji dan Tunjangan Karyawan",
+                "account_number": "6.02.01",
+                "category_code": "S",
+                "category_name": "Uang Keluar",
+                "cash_type_name": "invalid cash type",
+                "is_member_required": false
+              }
+            ]
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "example": 29
+              },
+              "limit": {
+                "type": "integer",
+                "example": 10
+              },
+              "offset": {
+                "type": "integer",
+                "example": 0
+              },
+              "current_page": {
+                "type": "integer",
+                "example": 1
+              },
+              "total_pages": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          }
+        }
+      },
       "JournalListResponse": {
         "type": "object",
         "properties": {
@@ -1913,21 +2021,13 @@
               "S",
               "R"
             ],
-            "example": "R"
-          },
-          "bank_account_code_to": {
-            "type": "string",
-            "example": "1234567890"
-          },
-          "bank_account_name_to": {
-            "type": "string",
-            "example": "Rekening Sukses Sejahtera"
+            "example": "S"
           },
           "total_amount": {
             "type": "number",
             "example": 20000
           },
-          "remark": {
+          "description": {
             "type": "string",
             "example": "Pencatatan Penerimaan Hutang Usaha"
           },
@@ -1949,11 +2049,11 @@
           },
           "category_code": {
             "type": "string",
-            "example": "07"
+            "example": "UK01"
           },
           "category_name": {
             "type": "string",
-            "example": "Penerimaan Utang Pinjaman"
+            "example": "Pembayaran Gaji dan Tunjangan Karyawan"
           },
           "member_code": {
             "type": "string",
@@ -2031,7 +2131,8 @@
           "bank_code",
           "bank_account_number",
           "bank_account_name",
-          "total_amount"
+          "total_amount",
+          "category_code"
         ],
         "properties": {
           "document_date": {
@@ -2054,6 +2155,14 @@
           "total_amount": {
             "type": "number",
             "example": 20000
+          },
+          "description": {
+            "type": "string",
+            "example": "Pencatatan Penerimaan Hutang Usaha"
+          },
+          "category_code": {
+            "type": "string",
+            "example": "UK01"
           }
         }
       },

@@ -180,6 +180,7 @@
           {
             "group": "Arus Kas & Bank",
             "pages": [
+              "api-reference/endpoint/voucher-category-cash",
               "api-reference/endpoint/voucher-create"
             ]
           }
