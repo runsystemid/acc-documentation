@@ -165,6 +165,58 @@
         "security": []
       }
     },
+    "/v1/banks": {
+      "get": {
+        "tags": [
+          "Banks"
+        ],
+        "summary": "List Banks",
+        "description": "Retrieve a list of banks",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search by bank name or code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of banks retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/vouchers": {
       "get": {
         "tags": [
@@ -1779,6 +1831,53 @@
   },
   "components": {
     "schemas": {
+      "BankListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "00"
+          },
+          "message": {
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Banks"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "Banks": {
+        "type": "object",
+        "properties": {
+          "bank_code": {
+            "type": "string"
+          },
+          "bank_name": {
+            "type": "string"
+          }
+        },
+        "example": [
+          {
+            "bank_code": "BCA",
+            "bank_name": "Bank Central Asia"
+          },
+          {
+            "bank_code": "BRI",
+            "bank_name": "Bank Rakyat Indonesia"
+          },
+          {
+            "bank_code": "BNI",
+            "bank_name": "Bank Negara Indonesia"
+          }
+        ]
+      },
       "VoucherListResponse": {
         "type": "object",
         "properties": {

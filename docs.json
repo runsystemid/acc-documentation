@@ -159,6 +159,12 @@
             ]
           },
           {
+            "group": "Master Data",
+            "pages": [
+              "api-reference/endpoint/bank-list"
+            ]
+          },
+          {
             "group": "Insight",
             "pages": [
               "api-reference/endpoint/dashboard-accountings",
