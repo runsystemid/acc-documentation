@@ -40,6 +40,20 @@
     }
   },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Landing Page",
+          "icon": "house",
+          "href": "https://accountingplus.id"
+        },
+        {
+          "anchor": "Video Tutorial",
+          "icon": "youtube",
+          "href": "https://www.youtube.com/playlist?list=PL-j9u6T81UtBaNtIT0_rYc461movwRGvY&utm_source=docs.accountingplus.id"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
@@ -105,6 +119,14 @@
                   "documentation/accounting/profit-loss",
                   "documentation/accounting/balance-sheet",
                   "documentation/accounting/trial-balance-sheet"
+                ]
+              },
+              {
+                "group": "Aset",
+                "pages": [
+                  "documentation/aset/pendaftaran-aset",
+                  "documentation/aset/posting-jurnal-depresiasi",
+                  "documentation/aset/depresiasi-aset"
                 ]
               },
               {
@@ -192,21 +214,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Landing Page",
-          "href": "https://accountingplus.id",
-          "icon": "house"
-        },
-        {
-          "anchor": "Video Tutorial",
-          "href": "https://www.youtube.com/playlist?list=PL-j9u6T81UtBaNtIT0_rYc461movwRGvY&utm_source=docs.accountingplus.id",
-          "icon": "youtube"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
