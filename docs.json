@@ -160,6 +160,7 @@
                   {
                     "group": "Konfigurasi",
                     "pages": [
+                      "documentation/settings/konfigurasi/untitled-page",
                       "documentation/settings/konfigurasi/member"
                     ]
                   }
